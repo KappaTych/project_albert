@@ -29,17 +29,17 @@ public class PlayerMovement : MonoBehaviour
     {
         moveH = Input.GetAxisRaw("Horizontal") * moveSpeed;
 		moveV = Input.GetAxisRaw("Vertical") * moveSpeed;
-        Direction newDirection = direction;
-        if (position.x < rb.position.x) {
-            newDirection = Direction.Left;
-        } else if (position.x > rb.position.x) {
-            newDirection = Direction.Right;
-        }
-        if (newDirection != direction) {
-            rb.transform.localScale = new Vector3(-rb.transform.localScale.x, rb.transform.localScale.y, rb.transform.localScale.z);
-        }
-        position = rb.position;
-        direction = newDirection;
+        //Direction newDirection = direction;
+        //if (position.x < rb.position.x) {
+        //    newDirection = Direction.Left;
+        //} else if (position.x > rb.position.x) {
+        //    newDirection = Direction.Right;
+        //}
+        //if (newDirection != direction) {
+        //    rb.transform.localScale = new Vector3(-rb.transform.localScale.x, rb.transform.localScale.y, rb.transform.localScale.z);
+        //}
+        //position = rb.position;
+        //direction = newDirection;
     }
 
 	private void FixedUpdate()
