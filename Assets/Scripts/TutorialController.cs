@@ -20,4 +20,9 @@ public class TutorialController : MonoBehaviour
         _systems.Execute();
         _systems.Cleanup();
     }
+
+    void OnDestroy()
+    {
+        _systems.TearDown();
+    }
 }

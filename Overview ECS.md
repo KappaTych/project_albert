@@ -26,6 +26,54 @@
                  +------------+
 ```
 
+## Component
+It is an atomic representation of data. It can be empty, have one or many properties, or even be marked as unique.
+
+### Flag components
+Flag components are defined to flag entities. In this case we say that something is movable. So if we have an entity we can ask `entity.isMovable` and get `true` or `false` back. 
+```C#
+public sealed class MovableComponent : IComponent {}
+```
+
+### Data Component
+Data Component can have multiple properties which can store pure data:
+```C#
+public sealed class PositionComponent : IComponent {
+    public int x, y;
+}
+```
+There is a method to check if an entity has a component(`hasPosition`). We can also get(`position`), replace(`ReplacePosition`) and remove(`RemovePosition`) components and add(`AddPosition`). Every entity can have only one type of a component set. This is why we have Replace methods. But we can combine all the different types of components in a single entity.
+
+### Reference Component
+Those components are harder to serialise. They point to some objects created at runtime, therefore it is not useful to persist the pointer as is. 
+```C#
+public sealed class ViewComponent : IComponent {
+    public GameObject gameObject;
+}
+``` 
+
+### Action Component
+This is a valid use of components, but it does more harm than good.
+```C#
+public sealed class DelegateComponent : IComponent {
+    public Action action;
+}
+```
+
+### Unique Component
+Every type of component we discussed previously can be defined as a unique component. The framework will make sure that only one instance of a unique component can be present in your context.
+```C#
+[Unique]
+public sealed class GameBoardComponent : IComponent {
+    public int columns;
+    public int rows;
+}
+```
+We can get an instance of a unique component with the following expression - `context.gameBoard`.
+
+The component can also be replaced and removed. So it breaks the idiom of the singleton pattern where an object is unique and persistent throughout the application life cycle. A unique component is more of a global variable than a singleton.
+
+
 ## Entity
 An entity is a container holding data to represent certain objects in application. You can add, replace or remove data from entities in form of IComponent. Entities have corresponding events to let you know if components were added, replaced or removed.
 
@@ -45,8 +93,22 @@ var hasPos = entity.hasPosition;
 var movable = entity.isMovable;
 ```
 
+### Entity creation
+An entity should always be a part of a context. This is why we are not able to instantiate an entity directly, but have to call `context.CreateEntity()`. Context is a managing data structure which monitors entities life cycle. When an entity is destroyed it will be put into a temporary pool and reused if it's reference count is back at `0`.
+
+When you keep a reference to an entity, you have to call `entity.Retain(this)`; and when it's time to drop the reference it is important to call `entity.Release(this)`;. Those calls increase and decrease the reference count. All internal classes of Entitas-CSharp are respecting this mechanism and so should your code. If you don't call `Retain` while keeping a reference to an entity, you might end up holding a reference to an entity which was destroyed and reborn as something else. If you forget to call `Release` on an entity which you retained, it will stay in the object pool forever, making your memory consumption grow over time.
+
+### Entity observation
+An entity has multiple events which users can subscribe to, in order to have introspection into entity life cycle.
+- OnComponentAdded
+- OnComponentRemoved
+- OnComponentReplaced
+- OnEntityReleased
+- OnDestroyEntity
+Those events are the same events context uses to monitor entity. They are exposed for the external use as well, however I would not recommend to use them directly. In a typical use case you rather want to have a group, collector or a reactive system.
+
 ## Context
-The Context is the factory where you create and destroy entities.
+The Context is the factory where you create and destroy entities. This way a context can manage the life cycle of all entities we create. It also is the first observer which get notified when we manipulate an entity.
 ```C#
 // Contexts.game is kindly generated for you by the code generator
 var gameContext = Contexts.game;
@@ -60,6 +122,65 @@ foreach (var e in entities) {
     // do something
 }
 ```
+
+### Entity object pool
+In order to avoid garbage collection, a context in Entitas-CSharp has an internal object pool. It contains destroyed entities, which will be used when a user creates a new entity. This way memory on the heap gets recycled. An entity can only be recycled, when we can be sure that no one holds a reference to this entity any more. This is why Entitas-CSharp has an internal reference count mechanism. If you use only stock Entitas and do not hold any references to entites your self, you don't have to think about it. The internal classes already taking care of all reference counting for you. 
+
+If however you want to create a something like this:
+```C#
+class Neighbour: IComponent {
+    public IEntity reference;
+}
+
+class EntityLink : MonoBehaviour {
+    IEntity _entity;
+}
+```
+Than you would need to call `_entity.Retain(this)`; when you store the reference. And you should not forget to call `_entity.Release(this)`; when you are not interested in the entity any more. We discourage components which have references to another entity in favour of an entity index.
+
+### Multiple context types
+A component is a column, an entity is a row and context is a table itself. Now in relational databases a table is defined by a schema.In Entitas it is based on classes which implement IComponent. This implies that when we define more component classes, our table becomes broader.Dependent on implementation detail, it can have an implication on memory consumption. 
+
+In order to tackle the growing table size, we can just introduce another table. Here is a snippet from Entitas-Csharp Wiki:
+```C#
+using Entitas;
+using Entitas.CodeGenerator;
+
+[Game, UI]
+public class SceneComponent : IComponent
+{
+    public Scene Value;
+}
+
+[Game]
+public class Bullet
+{
+    // Since it doesn't derive from 'IComponent'
+    // it will be generated as 'BulletComponent'
+}
+
+[Meta]
+public struct EditorOnlyVisual
+{
+    public bool ShowInMode;
+
+    public EditorOnlyVisual(bool show) {
+        this.ShowInMode = show;
+    }
+}
+```
+In this particular example we have a `Game`, `Meta` and `UI` context. As you can see with `SceneComponent`, one component can be part of multiple contexts. 
+
+### How many context types should I have?
+This really depends on your use case. You just have to keep in mind than an entity is backed by an array of Icomponents meaning that it is an array of pointers and a pointer is 8bytes big on an 64bit architecture.  If you have 100 entites in your game, they take up 40KB. 
+
+### Context observation
+And this is also what we use internally for groups (described in its own chapter) and visual debugger. If you want to write some tooling for Entitas e.g. custom Logging or profiling you can use follwoing events:
+- OnEntityCreated
+- OnEntityWillBeDestroyed
+- OnEntityDestroyed
+- OnGroupCreated
+
 
 ## Group
 Groups enable super quick filtering on entities in the context. They are continuously updated when entities change and can return groups of entities instantly.
@@ -89,30 +210,23 @@ count = movables.count; // count is 0, the group is empty
 ```
 Both the group and fetched entities are cached, so even calling this method multiple times is super fast.Always prefer using groups when possible. 
 `gameContext.GetEntities(GameMatcher.Movable)` internally uses groups, too.
-Groups have events for `OnEntityAdded`, `OnEntityRemoved` and `OnEntityUpdated` to directly react to changes in the group.
+
+### Group observation
+Groups have events for `OnEntityAdded`, `OnEntityRemoved` and `OnEntityUpdated` to directly react to changes in the group. Even more importantly is to understand than, when we replace a component on an entity, old component will be removed and new component will be added.
+Other ingredients like Collector, Index and Reactive system are using the same events. So, for day to day work, you probably can use those. 
 ```C#
 gameContext.GetGroup(GameMatcher.Position).OnEntityAdded += (group, entity, index, component) => {
     // Do something
 };
 ```
 
-## Collector
-The Collector provides an easy way to react to changes in a group over time.
-```C#
-var group = gameContext.GetGroup(GameMatcher.Position);
-var collector = group.CreateCollector(GroupEvent.Added);
-
-foreach (var e in collector.collectedEntities) {
-    // do something with all the entities
-    // that have been collected to this point of time
-}
-collector.ClearCollectedEntities();
-
-collector.Deactivate();
-```
-
-## Matcher
+### Matcher
 Matchers are generated by the code generator and can be combined. Matchers are usually used to get groups of entities from the context of interest. Remember to prefix the matcher with the context name you are interested (e.g. GameMatcher, InputMatcher etc).
+
+In order to define more complex groups, we can use `AllOf`, `AnyOf` and `NoneOf` methods.
+- `AllOf` means that all the listed components has to be present on the entity in order for this entity to become part of the group. 
+- `AnyOf` means that one of the listed component has to be present. 
+- And in case of `NoneOf` we don't want the listed components to be present. `NoneOf` is not a stand alone description, meaning that you will not be able to write `context.GetGroup(GameMatcher.NoneOf(GameMatcher.Position))`; It is prohibited because it creates a very large set. NoneOf can be used only in combination with `AllOf` or `AnyOf`.
 ```C#
 var matcher = GameMatcher.Movable;
 
@@ -125,6 +239,64 @@ GameMatcher
     .AnyOf(GameMatcher.Health, GameMatcher.Interactive)
     .NoneOf(GameMatcher.Animating);
 ```
+
+## Collector
+The Collector provides an easy way to react to changes in a group over time.
+```C#
+context.CreateCollector(GameMatcher.GameBoardElement.Removed());
+```
+We define that we want to collect all entities which got `GameBoardElement` component removed. Internally a collector will ask for a group of entities which contain `GameBoardElement` components. It will subscribe it self to group events and keep a list of references to entities which will leave the group, as we were interested in Removed event. 
+Also important to notice, when an entity got collected as removed from a group. It will still stay collected even if we add a `GameBoardElement` component to it again and there for it will be added to the group again. This is why reactive systems has to implement `Filter` method.
+
+A collector can also be created with an array of groups and events. Meaning that we can observe multiple groups and keep a joined list of changed entites.
+```C#
+var group = gameContext.GetGroup(GameMatcher.Position, GameMatcher.View);
+var collector = group.CreateCollector(GroupEvent.Added);
+```
+We can iterate over collected entities and clear them out.
+```C#
+foreach (var e in collector.collectedEntities) {
+    // do something with all the entities
+    // that have been collected to this point of time
+}
+collector.ClearCollectedEntities();
+```
+A collector can be activated and deactivated, so that we can stop and resume the observing of the group. 
+```C#
+collector.Activate();
+
+collector.Deactivate();
+```
+
+There are follwoing three events that we can be interested in:
+- Added
+- Removed
+- AddedOrRemoved
+
+## Index
+However, what about cases, where we want to get entities on a certain position. We could iterate over all entites which have a position and collect only those which have desired position. Or we could use an Index.
+```C#
+[Game]
+public sealed class PositionComponent : IComponent {
+
+    [EntityIndex]
+    public IntVector2 value;
+}
+```
+The `EntityIndex` annotation will tell the code generator to create API on context so that user will be able to get entities by given `IntVector2` value.
+
+We ask context to give us all entities on position, where the "input" was effected and we filter out entites which are not interactive:
+```C#
+foreach (var e in _contexts.game.GetEntitiesWithPosition(
+                    new IntVector2(input.x, input.y)
+                  ).Where(e => e.isInteractive)) {
+    e.isDestroyed = true;
+}
+```
+
+Internally an index is a group observer. It is created on context initialisation, subscribing to group events from the beginning. When we start to create entities and add components to them, they will start entering groups and the index will be notified that an entity was added with following component.We can use the value of the component as a key in a `HashMap`, where the value is the entity itself. When we replace or remove component, the index is notified by the group as well.
+
+In Entitas-CSharp we have two types of built in indexes: `EntityIndex` and `PrimaryEntityIndex`.  An `EntityIndex` is backed by a HashMap which stores a set of entities as value. Meaning - you could have multiple entities on the same position. `PrimaryEntityIndex` makes sure that every key is associated with only one entity. This is very good if you have an `Id` component and you want to look up entities by this Id. This is also what we recommend, when you need to store a reference from one entity to another.
 
 ## Systems
 There are 5 different types of Systems:
@@ -376,3 +548,6 @@ public class EmitInputSystem : IExecuteSystem, ICleanupSystem {
     }
 }
 ```
+
+### Careful with AnyOf based collector
+When you create a collector which whatches a group based on AnyOf matcher, you probably will get an unexpected result, as when you have components A and B and you have an AnyOf(A, B) group. An entity will enter a group only when one of the components is added, when we add the second component, the entity is still in the group so it is not Added and therefore it is not collected. This is however probably not what you want to have. Normally people want to see entities collected when any of the two components are added. In this case what you should do is to setup a collector with two distinct groups and not one AnyOf group. 
