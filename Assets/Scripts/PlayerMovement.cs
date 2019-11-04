@@ -17,14 +17,12 @@ public class PlayerMovement : MonoBehaviour
     Direction direction = Direction.Left;
     Vector2 position;
 
-    // Start is called before the first frame update
     private void Start()
     {
 		rb = GetComponent<Rigidbody2D>();
         position = rb.position;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         moveH = Input.GetAxisRaw("Horizontal") * moveSpeed;

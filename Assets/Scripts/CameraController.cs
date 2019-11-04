@@ -6,13 +6,11 @@ public class CameraController : MonoBehaviour
 {
 	private Transform target;
 	[SerializeField] private float smoothMoveSpeed;
-    // Start is called before the first frame update
     private void Start()
     {
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     private void LateUpdate()
     {
 		//MARKER Method 1. traditional
