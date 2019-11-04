@@ -551,3 +551,75 @@ public class EmitInputSystem : IExecuteSystem, ICleanupSystem {
 
 ### Careful with AnyOf based collector
 When you create a collector which whatches a group based on AnyOf matcher, you probably will get an unexpected result, as when you have components A and B and you have an AnyOf(A, B) group. An entity will enter a group only when one of the components is added, when we add the second component, the entity is still in the group so it is not Added and therefore it is not collected. This is however probably not what you want to have. Normally people want to see entities collected when any of the two components are added. In this case what you should do is to setup a collector with two distinct groups and not one AnyOf group. 
+
+## Attributes
+
+The code generator currently supports the following attributes to be used with classes, interfaces and structs :
+- `[Context]`: You can use this attribute to make a component be available only in the specified context(s); e.g., `[MyContextName]`, `[Enemies]`, `[UI]`, etc. Improves memory footprint. It can also create components.
+When used simply as `[Context]` on a `class`, `interface` or `struct` the code generator will create a new `class` for you with the suffix `Component` and add this new class to the default context;
+- `[Unique]`: The code generator will provide additional methods to ensure that up to a maximum of one entity with this component exists.
+It will generate the following additional properties and methods for the component: `Context.{ComponentName}Entity`.
+- `[FlagPrefix]`: Can be used to support custom prefixes for flag components only.
+- `[PrimaryEntityIndex]`: Can be used to limit entities to a unique component value.
+- `[EntityIndex]`: Can be used to search for entities with a component value.
+- `[CustomComponentName]`: Generates multiple components with different names for one class or interface. This can be used to to enforce uniformity across multiple components and avoid the tedious task of writing all the components individually.
+- `[DontGenerate]`: The code generator will not process components with this attribute.
+- `[Event]`: The code generator will generate components, systems and interface to support reactive UI. Eliminate the need to write `RenderXSystems`.
+- `[Cleanup]`(Asset Store only): The code generator will generate systems to remove components or destroy entities.
+
+### Event 
+`[Event({EventTarget}, {EventType}, {priority})]`
+
+EventTarget
+- `.Self`: View's `OnPosition` will be called only when the listened `GameEntity`'s position is changed.
+- `.Any`: View's `OnPosition` will be call when any `GameEntity`'s position is changed.
+First parameter of `OnPosition` is the entity whose Position has changed.
+
+EventType
+- `.Added` (default): Will generate `IPositionListener`.
+- `.Removed`: Will generate `IPositionRemovedListener`.
+
+priority
+Decide generated systems' execution order.
+
+Possible Use Cases
+- Playing animations
+- Playing sound effects
+- Updating UI (e.g. for score)
+- Any other interaction with APIs that exist outside of your game logic
+
+```C#
+[Game, Event(EventTarget.Self)]
+public class PositionComponent : IComponent
+{
+  public float x;
+  public float y;
+}
+
+public class GameView: Monobehaviour, IPositionListener
+{
+  // Function to call after adding this View to a GameEntity
+  public void RegisterListeners(Contexts contexts, GameEntity entity)
+  {
+    entity.AddGamePositionListener(this);
+  }
+  
+  public void OnPosition(GameEntity entity, float x, float y)
+  {
+    transform.position = new Vector2(x,y);
+  }
+}
+
+// using the same GameController from HelloWorld tutorial
+public class GameController : MonoBehaviour
+{
+  ...
+  private static Systems CreateSystems(Contexts contexts)
+    {
+      return new Feature("Systems")
+        // Your systems here
+        .Add(new GameEventSystems(contexts));
+    }
+  }
+}
+```
