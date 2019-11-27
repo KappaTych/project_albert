@@ -1,7 +1,7 @@
 ﻿using Entitas;
 
-[Game]
+[Core]
 public class DirectionComponent : IComponent
 {
-    public float dir;
+    public eDirection dir;
 }

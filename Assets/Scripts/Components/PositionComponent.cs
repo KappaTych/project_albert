@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Entitas;
 
-[Game]
+[Core]
 public class PositionComponent : IComponent
 {
     public Vector2 pos;

@@ -6,7 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public static class InputComponentsLookup {
+public static class BulletsComponentsLookup {
 
     public const int EntityId = 0;
 

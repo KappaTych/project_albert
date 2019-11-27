@@ -1,6 +1,4 @@
 ﻿using Entitas;
 
-[Game]
-public class MoveableComponent : IComponent
-{
-}
+[Core]
+public class MoveableComponent : IComponent {}
