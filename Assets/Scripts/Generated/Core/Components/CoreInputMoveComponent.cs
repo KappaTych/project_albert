@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class CoreEntity {
 
-    public InputComponent input { get { return (InputComponent)GetComponent(CoreComponentsLookup.Input); } }
-    public bool hasInput { get { return HasComponent(CoreComponentsLookup.Input); } }
+    public InputMoveComponent inputMove { get { return (InputMoveComponent)GetComponent(CoreComponentsLookup.InputMove); } }
+    public bool hasInputMove { get { return HasComponent(CoreComponentsLookup.InputMove); } }
 
-    public void AddInput(eMovement newMovement) {
-        var index = CoreComponentsLookup.Input;
-        var component = (InputComponent)CreateComponent(index, typeof(InputComponent));
+    public void AddInputMove(eMovement newMovement) {
+        var index = CoreComponentsLookup.InputMove;
+        var component = (InputMoveComponent)CreateComponent(index, typeof(InputMoveComponent));
         component.movement = newMovement;
         AddComponent(index, component);
     }
 
-    public void ReplaceInput(eMovement newMovement) {
-        var index = CoreComponentsLookup.Input;
-        var component = (InputComponent)CreateComponent(index, typeof(InputComponent));
+    public void ReplaceInputMove(eMovement newMovement) {
+        var index = CoreComponentsLookup.InputMove;
+        var component = (InputMoveComponent)CreateComponent(index, typeof(InputMoveComponent));
         component.movement = newMovement;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveInput() {
-        RemoveComponent(CoreComponentsLookup.Input);
+    public void RemoveInputMove() {
+        RemoveComponent(CoreComponentsLookup.InputMove);
     }
 }
 
@@ -40,17 +40,17 @@ public partial class CoreEntity {
 //------------------------------------------------------------------------------
 public sealed partial class CoreMatcher {
 
-    static Entitas.IMatcher<CoreEntity> _matcherInput;
+    static Entitas.IMatcher<CoreEntity> _matcherInputMove;
 
-    public static Entitas.IMatcher<CoreEntity> Input {
+    public static Entitas.IMatcher<CoreEntity> InputMove {
         get {
-            if (_matcherInput == null) {
-                var matcher = (Entitas.Matcher<CoreEntity>)Entitas.Matcher<CoreEntity>.AllOf(CoreComponentsLookup.Input);
+            if (_matcherInputMove == null) {
+                var matcher = (Entitas.Matcher<CoreEntity>)Entitas.Matcher<CoreEntity>.AllOf(CoreComponentsLookup.InputMove);
                 matcher.componentNames = CoreComponentsLookup.componentNames;
-                _matcherInput = matcher;
+                _matcherInputMove = matcher;
             }
 
-            return _matcherInput;
+            return _matcherInputMove;
         }
     }
 }

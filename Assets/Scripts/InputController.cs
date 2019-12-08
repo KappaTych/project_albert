@@ -18,7 +18,7 @@ public class InputController : MonoBehaviour
         if (horizontal != 0 || vertical != 0)
         {
             var movement = MovementExtensions.GetMovement(horizontal, vertical);
-            entity.ReplaceInput(movement);
+            entity.ReplaceInputMove(movement);
         }
     }
 
@@ -39,7 +39,7 @@ public class InputController : MonoBehaviour
         );
     }
 
-    private Vector2 touchOrigin = -Vector2.one;
+    private Vector2 _touchOrigin = -Vector2.one;
 
     private Vector2 GetTouchInput()
     {
@@ -51,17 +51,17 @@ public class InputController : MonoBehaviour
 
         if (firstTouch.phase == TouchPhase.Began)
         {
-            touchOrigin = firstTouch.position;
+            _touchOrigin = firstTouch.position;
         } 
-        else if (firstTouch.phase == TouchPhase.Ended && touchOrigin.x >= 0)
+        else if (firstTouch.phase == TouchPhase.Ended && _touchOrigin.x >= 0)
         {
             var touchEnd = firstTouch.position;
-            float x = touchEnd.x - touchOrigin.x;
-            float y = touchEnd.y - touchOrigin.y;
+            float x = touchEnd.x - _touchOrigin.x;
+            float y = touchEnd.y - _touchOrigin.y;
 
             // Set touchOrigin.x to -1 so that our else if statement will 
             // evaluate false and not repeat immediately.
-            touchOrigin.x = -1;
+            _touchOrigin.x = -1;
 
             if (Mathf.Abs(x) > Mathf.Abs(y))
             {

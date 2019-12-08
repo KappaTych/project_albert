@@ -1,7 +1,7 @@
 ﻿using Entitas;
 
 [Core]
-public class InputComponent : IComponent
+public class InputMoveComponent : IComponent
 {
     public eMovement movement;
 }

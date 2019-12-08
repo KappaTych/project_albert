@@ -10,19 +10,19 @@ public static class CoreComponentsLookup {
 
     public const int DebugMessage = 0;
     public const int EntityId = 1;
-    public const int Input = 2;
+    public const int InputMove = 2;
 
     public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
         "DebugMessage",
         "EntityId",
-        "Input"
+        "InputMove"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(DebugMessageComponent),
         typeof(EntityIdComponent),
-        typeof(InputComponent)
+        typeof(InputMoveComponent)
     };
 }
