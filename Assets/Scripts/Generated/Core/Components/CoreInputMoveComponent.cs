@@ -11,14 +11,14 @@ public partial class CoreEntity {
     public InputMoveComponent inputMove { get { return (InputMoveComponent)GetComponent(CoreComponentsLookup.InputMove); } }
     public bool hasInputMove { get { return HasComponent(CoreComponentsLookup.InputMove); } }
 
-    public void AddInputMove(eMovement newMovement) {
+    public void AddInputMove(UnityEngine.Vector2 newMovement) {
         var index = CoreComponentsLookup.InputMove;
         var component = (InputMoveComponent)CreateComponent(index, typeof(InputMoveComponent));
         component.movement = newMovement;
         AddComponent(index, component);
     }
 
-    public void ReplaceInputMove(eMovement newMovement) {
+    public void ReplaceInputMove(UnityEngine.Vector2 newMovement) {
         var index = CoreComponentsLookup.InputMove;
         var component = (InputMoveComponent)CreateComponent(index, typeof(InputMoveComponent));
         component.movement = newMovement;

@@ -1,7 +1,8 @@
 ﻿using Entitas;
+using UnityEngine;
 
 [Core]
 public class InputMoveComponent : IComponent
 {
-    public eMovement movement;
+    public Vector2 movement;
 }
