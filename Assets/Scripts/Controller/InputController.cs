@@ -19,7 +19,13 @@ public class InputController : MonoBehaviour
             entity.ReplaceInputMove(move);
         else 
             entity.AddInputMove(move);
-     
+
+        if (horizontal != 0 || vertical != 0)
+        {
+            var movement = MovementExtensions.GetMovement(horizontal, vertical);
+            entity.ReplaceDirection(movement);
+        }
+
     }
 
     private Vector2 GetInput()

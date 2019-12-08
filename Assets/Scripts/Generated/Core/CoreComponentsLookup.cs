@@ -9,15 +9,19 @@
 public static class CoreComponentsLookup {
 
     public const int DebugMessage = 0;
-    public const int EntityId = 1;
-    public const int GameObject = 2;
-    public const int InputMove = 3;
-    public const int MoveSpeed = 4;
+    public const int Direction = 1;
+    public const int DirectionListener = 2;
+    public const int EntityId = 3;
+    public const int GameObject = 4;
+    public const int InputMove = 5;
+    public const int MoveSpeed = 6;
 
-    public const int TotalComponents = 5;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
         "DebugMessage",
+        "Direction",
+        "DirectionListener",
         "EntityId",
         "GameObject",
         "InputMove",
@@ -26,6 +30,8 @@ public static class CoreComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(DebugMessageComponent),
+        typeof(DirectionComponent),
+        typeof(DirectionListenerComponent),
         typeof(EntityIdComponent),
         typeof(GameObjectComponent),
         typeof(InputMoveComponent),

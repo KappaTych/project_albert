@@ -4,6 +4,6 @@ using Entitas.CodeGeneration.Attributes;
 [Core, Input, Bullets]
 public class EntityIdComponent : IComponent
 {
-    [PrimaryEntityIndex ]
+    [PrimaryEntityIndex]
     public int id;
 }

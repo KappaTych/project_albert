@@ -20123,6 +20123,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e38ece2b2958946ac35c3cef9de738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1392402293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7509921563386469301, guid: b2517cac6174307438ec405fcf93c585,
+    type: 3}
+  m_PrefabInstance: {fileID: 7509921561776628333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1392402295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392402293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6c2fe90668b8946897f5526100f536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1392402300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392402293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b002accddafb44d81f325878733237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7509921561776628333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20190,5 +20220,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7509921563386469300, guid: b2517cac6174307438ec405fcf93c585,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509921563386469296, guid: b2517cac6174307438ec405fcf93c585,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509921563386469299, guid: b2517cac6174307438ec405fcf93c585,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7509921563386469296, guid: b2517cac6174307438ec405fcf93c585, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b2517cac6174307438ec405fcf93c585, type: 3}

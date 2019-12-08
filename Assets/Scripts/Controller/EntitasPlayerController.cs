@@ -2,7 +2,7 @@ using Entitas;
 using Entitas.Unity;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class EntitasPlayerController : MonoBehaviour
 {
     Systems _systems;
     Systems _fixedSystems;
@@ -14,9 +14,12 @@ public class PlayerController : MonoBehaviour
         
         gameObject.Link(contexts.core.CreateEntity());
         gameObject.GetEntity<CoreEntity>().AddGameObject(gameObject);
-        gameObject.GetEntity<CoreEntity>().AddMoveSpeed(2.0f); // todo config
+        // todo config
+        gameObject.GetEntity<CoreEntity>().AddMoveSpeed(2.0f); 
+        gameObject.GetEntity<CoreEntity>().AddDirection(eMovement.Right); 
 
         _systems = new Feature("Systems")
+            .Add(new CoreEventSystems(contexts))
             .Add(new DebugMessageSystem(contexts));
 
         _fixedSystems = new Feature("FixedUpdate")
