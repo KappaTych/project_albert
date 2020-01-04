@@ -111,4 +111,12 @@ public class EnemyMovement : MonoBehaviour
             //animator.SetTrigger("enemyAttack");
         //}
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponentInChildren<BarController>().vl -= 5;
+        }
+    }
 }
