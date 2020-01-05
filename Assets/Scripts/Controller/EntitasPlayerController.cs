@@ -17,8 +17,8 @@ public class EntitasPlayerController : MonoBehaviour
         var entity = gameObject.GetEntity<CoreEntity>();
         entity.AddGameObject(gameObject);
         // todo config
+        entity.AddMove(new Vector2(0, -1));
         entity.AddMoveSpeed(2.0f);
-        entity.AddDirection(eMovement.Right);
         entity.AddHellth(100, 100);
     }
 
@@ -31,9 +31,13 @@ public class EntitasPlayerController : MonoBehaviour
             .Add(new DebugMessageSystem(contexts));
 
         _fixedSystems = new Feature("PlayerFixedUpdate")
-            .Add(new InputMoveSystem(contexts));
+            .Add(new VelocityMoveSystem(contexts));
 
         _systems.Initialize();
+
+        var entity = gameObject.GetEntity<CoreEntity>();
+        gameObject.GetComponent<HealthBarView>().RegisterListeners(Contexts.sharedInstance, entity);
+        gameObject.GetComponent<PlayerAnimationView>().RegisterListeners(Contexts.sharedInstance, entity); 
     }
 
     void Update()

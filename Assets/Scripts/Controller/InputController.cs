@@ -15,16 +15,10 @@ public class InputController : MonoBehaviour
         int horizontal = Mathf.RoundToInt(move.x);
         int vertical = Mathf.RoundToInt(move.y);
 
-        if (entity.hasInputMove)
-            entity.ReplaceInputMove(move);
+        if (entity.hasMove)
+            entity.ReplaceMove(move);
         else 
-            entity.AddInputMove(move);
-
-        if (horizontal != 0 || vertical != 0)
-        {
-            var movement = MovementExtensions.GetMovement(horizontal, vertical);
-            entity.ReplaceDirection(movement);
-        }
+            entity.AddMove(move);
 
     }
 
