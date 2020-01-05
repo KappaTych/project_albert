@@ -10,5 +10,6 @@ public sealed class CoreEventSystems : Feature {
 
     public CoreEventSystems(Contexts contexts) {
         Add(new DirectionEventSystem(contexts)); // priority: 0
+        Add(new HellthEventSystem(contexts)); // priority: 0
     }
 }

@@ -13,10 +13,12 @@ public static class CoreComponentsLookup {
     public const int DirectionListener = 2;
     public const int EntityId = 3;
     public const int GameObject = 4;
-    public const int InputMove = 5;
-    public const int MoveSpeed = 6;
+    public const int Hellth = 5;
+    public const int HellthListener = 6;
+    public const int InputMove = 7;
+    public const int MoveSpeed = 8;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 9;
 
     public static readonly string[] componentNames = {
         "DebugMessage",
@@ -24,6 +26,8 @@ public static class CoreComponentsLookup {
         "DirectionListener",
         "EntityId",
         "GameObject",
+        "Hellth",
+        "HellthListener",
         "InputMove",
         "MoveSpeed"
     };
@@ -34,6 +38,8 @@ public static class CoreComponentsLookup {
         typeof(DirectionListenerComponent),
         typeof(EntityIdComponent),
         typeof(GameObjectComponent),
+        typeof(Hellth),
+        typeof(HellthListenerComponent),
         typeof(InputMoveComponent),
         typeof(MoveSpeedComponent)
     };
