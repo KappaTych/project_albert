@@ -12,7 +12,6 @@ public class DirectionView : MonoBehaviour, IEventListener, IDirectionListener
         RegisterListeners(Contexts.sharedInstance, e);
     }
 
-    // Function to call after adding this View to a CoreEntity
     public void RegisterListeners(Contexts contexts, CoreEntity entity)
     {
         entity.AddDirectionListener(this);

@@ -116,7 +116,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponentInChildren<BarController>().vl -= 5;
+            var e = other.gameObject.GetEntity<CoreEntity>();
+            e.ReplaceHellth(e.hellth.curValue - 25.0f);
         }
     }
 }

@@ -7,22 +7,30 @@ public class EntitasPlayerController : MonoBehaviour
     Systems _systems;
     Systems _fixedSystems;
 
-    void Start()
+    void Awake()
     {
         var contexts = Contexts.sharedInstance;
         contexts.SubscribeId();
-        
-        gameObject.Link(contexts.core.CreateEntity());
-        gameObject.GetEntity<CoreEntity>().AddGameObject(gameObject);
-        // todo config
-        gameObject.GetEntity<CoreEntity>().AddMoveSpeed(2.0f); 
-        gameObject.GetEntity<CoreEntity>().AddDirection(eMovement.Right); 
 
-        _systems = new Feature("Systems")
+        gameObject.Link(contexts.core.CreateEntity());
+
+        var entity = gameObject.GetEntity<CoreEntity>();
+        entity.AddGameObject(gameObject);
+        // todo config
+        entity.AddMoveSpeed(2.0f);
+        entity.AddDirection(eMovement.Right);
+        entity.AddHellth(100, 100);
+    }
+
+    void Start()
+    {
+        var contexts = Contexts.sharedInstance;
+
+        _systems = new Feature("PlayerSystems")
             .Add(new CoreEventSystems(contexts))
             .Add(new DebugMessageSystem(contexts));
 
-        _fixedSystems = new Feature("FixedUpdate")
+        _fixedSystems = new Feature("PlayerFixedUpdate")
             .Add(new InputMoveSystem(contexts));
 
         _systems.Initialize();

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class BarController : MonoBehaviour
+public class BarView : MonoBehaviour
 {
     public Image vlImage;
     public Image effectImage;
 
-    [HideInInspector] public float vl;
-    public float maxVl;
+    private float vl;
+    [SerializeField] private float maxVl;
     [SerializeField] private float speed = 0.005f;
 
     void Start()
@@ -26,4 +26,7 @@ public class BarController : MonoBehaviour
         
     }
 
+    public void setValue(float v) { vl = v; }
+
+    public void setValue(float v, float m) { vl = v; maxVl = m; }
 }
