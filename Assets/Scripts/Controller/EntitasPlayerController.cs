@@ -31,7 +31,7 @@ public class EntitasPlayerController : MonoBehaviour
             .Add(new DebugMessageSystem(contexts));
 
         _fixedSystems = new Feature("PlayerFixedUpdate")
-            .Add(new VelocityMoveSystem(contexts));
+            .Add(new ClampMoveSystem(contexts));
 
         _systems.Initialize();
 
