@@ -6,6 +6,9 @@ public class PlayerAnimationView : MonoBehaviour, IEventListener, IMoveListener
     private int lastDirection;
     private const float eps = 0.01f;
 
+    public string direction = "dir";
+    public string moving = "isMoving";
+    
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -22,7 +25,7 @@ public class PlayerAnimationView : MonoBehaviour, IEventListener, IMoveListener
         if (movement.magnitude >= eps)
             lastDirection = MovementExtensions.GetCounterClockDirection(movement);
 
-        anim.SetFloat("dir", (float)lastDirection);
-        anim.SetBool("isMove", movement.magnitude >= eps);
+        anim.SetFloat(direction, (float)lastDirection);
+        anim.SetBool(moving, movement.magnitude >= eps);
     }
 }

@@ -1,8 +1,8 @@
-using Entitas;
+﻿using Entitas;
 using Entitas.Unity;
 using UnityEngine;
 
-public class EntitasPlayerController : MonoBehaviour
+public class EntitasEnemyController : MonoBehaviour
 {
     Systems _systems;
     Systems _fixedSystems;
@@ -27,18 +27,16 @@ public class EntitasPlayerController : MonoBehaviour
         var contexts = Contexts.sharedInstance;
 
         _systems = new Feature("PlayerSystems")
-            .Add(new CoreEventSystems(contexts))
-            .Add(new DebugMessageSystem(contexts));
+            .Add(new CoreEventSystems(contexts));
 
-        _fixedSystems = new Feature("PlayerFixedUpdate")
-            .Add(new ClampMoveSystem(contexts));
+        _fixedSystems = new Feature("PlayerFixedUpdate");
+            //.Add(new ClampMoveSystem(contexts));
 
         _systems.Initialize();
         _fixedSystems.Initialize();
 
         var entity = gameObject.GetEntity<CoreEntity>();
         gameObject.GetComponent<HealthBarView>().RegisterListeners(Contexts.sharedInstance, entity);
-        gameObject.GetComponent<PlayerAnimationView>().RegisterListeners(Contexts.sharedInstance, entity); 
     }
 
     void Update()
@@ -57,6 +55,7 @@ public class EntitasPlayerController : MonoBehaviour
     {
         _fixedSystems.TearDown();
         _systems.TearDown();
+
         gameObject.Unlink();
     }
 }

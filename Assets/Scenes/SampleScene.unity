@@ -20477,11 +20477,11 @@ GameObject:
   - component: {fileID: 1611430361}
   - component: {fileID: 1611430364}
   - component: {fileID: 1611430363}
+  - component: {fileID: 1611430368}
   - component: {fileID: 1611430366}
   - component: {fileID: 1392402300}
   - component: {fileID: 1611430367}
   - component: {fileID: 1611430365}
-  - component: {fileID: 1611430368}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -20628,6 +20628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642096e1ebfc902478fde137ef255962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: dir
+  moving: isMoving
 --- !u!95 &1611430368
 Animator:
   serializedVersion: 3
@@ -20820,13 +20822,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678265752242547637}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c51fc2f3a53a8f469382774325bfa91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerDamage: 0
-  moveTime: 0.6
+  moveTime: 1.5
   blockingLayer:
     serializedVersion: 2
     m_Bits: 2
@@ -20842,6 +20844,7 @@ GameObject:
   - component: {fileID: 1678265752242547647}
   - component: {fileID: 1678265752242547646}
   - component: {fileID: 1678265752242547633}
+  - component: {fileID: 1678265752242547638}
   - component: {fileID: 1678265752242547634}
   m_Layer: 0
   m_Name: Enemy 1
@@ -20850,6 +20853,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &1678265752242547638
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678265752242547637}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c18c3f04cad918e41aaba2287a69fe48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1678265752242547644
 Transform:
   m_ObjectHideFlags: 0
