@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-public class PlayerAnimationView : MonoBehaviour, IEventListener, IMoveListener
+public class PlayerAnimationView : MonoBehaviour, 
+    IEventListener, IMoveListener, IDirectionListener
 {
     private Animator anim;
-    private int lastDirection;
-    private const float eps = 0.01f;
 
     public string direction = "dir";
     public string moving = "isMoving";
@@ -18,14 +17,17 @@ public class PlayerAnimationView : MonoBehaviour, IEventListener, IMoveListener
     {
         entity.AddMoveListener(this);
         OnMove(entity, entity.move.movement);
+        entity.AddDirectionListener(this);
+        OnDirection(entity, entity.direction.dir);
     }
 
     public void OnMove(CoreEntity entity, UnityEngine.Vector2 movement)    
     {
-        if (movement.magnitude >= eps)
-            lastDirection = MovementExtensions.GetCounterClockDirection(movement);
+        anim.SetBool(moving, entity.move.isMoving());
+    }
 
-        anim.SetFloat(direction, (float)lastDirection);
-        anim.SetBool(moving, movement.magnitude >= eps);
+    public void OnDirection(CoreEntity entity, int dir)
+    {
+        anim.SetFloat(direction, (float)dir);
     }
 }

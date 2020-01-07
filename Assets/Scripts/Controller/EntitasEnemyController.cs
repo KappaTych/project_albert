@@ -17,7 +17,8 @@ public class EntitasEnemyController : MonoBehaviour
         var entity = gameObject.GetEntity<CoreEntity>();
         entity.AddGameObject(gameObject);
         // todo config
-        entity.AddMove(new Vector2(0, -1));
+        entity.AddMove(new Vector2(0, 0));
+        entity.AddDirection(4);
         entity.AddMoveSpeed(1.1f);
         entity.AddHellth(100, 100);
     }
@@ -30,13 +31,15 @@ public class EntitasEnemyController : MonoBehaviour
             .Add(new CoreEventSystems(contexts));
 
         _fixedSystems = new Feature("PlayerFixedUpdate")
-            .Add(new ClampMoveSystem(contexts));
+            .Add(new ClampMoveSystem(contexts))
+            .Add(new DirectionSystem(contexts));
 
         _systems.Initialize();
         _fixedSystems.Initialize();
 
         var entity = gameObject.GetEntity<CoreEntity>();
         gameObject.GetComponent<HealthBarView>().RegisterListeners(Contexts.sharedInstance, entity);
+        gameObject.GetComponent<PlayerAnimationView>().RegisterListeners(Contexts.sharedInstance, entity);
     }
 
     void Update()

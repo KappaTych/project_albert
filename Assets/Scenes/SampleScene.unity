@@ -21222,6 +21222,7 @@ GameObject:
   - component: {fileID: 1678265752242547639}
   - component: {fileID: 1678265752242547640}
   - component: {fileID: 1678265752242547641}
+  - component: {fileID: 1678265752242547642}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -21289,6 +21290,20 @@ MonoBehaviour:
   maxRange: 2
   target: {fileID: 1611430362}
   home: {fileID: 279668296}
+--- !u!114 &1678265752242547642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678265752242547637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642096e1ebfc902478fde137ef255962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: dir
+  moving: isMoving
 --- !u!4 &1678265752242547644
 Transform:
   m_ObjectHideFlags: 0

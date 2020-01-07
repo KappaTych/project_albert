@@ -9,18 +9,22 @@
 public static class CoreComponentsLookup {
 
     public const int DebugMessage = 0;
-    public const int EntityId = 1;
-    public const int GameObject = 2;
-    public const int Hellth = 3;
-    public const int HellthListener = 4;
-    public const int Move = 5;
-    public const int MoveListener = 6;
-    public const int MoveSpeed = 7;
+    public const int Direction = 1;
+    public const int DirectionListener = 2;
+    public const int EntityId = 3;
+    public const int GameObject = 4;
+    public const int Hellth = 5;
+    public const int HellthListener = 6;
+    public const int Move = 7;
+    public const int MoveListener = 8;
+    public const int MoveSpeed = 9;
 
-    public const int TotalComponents = 8;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "DebugMessage",
+        "Direction",
+        "DirectionListener",
         "EntityId",
         "GameObject",
         "Hellth",
@@ -32,6 +36,8 @@ public static class CoreComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(DebugMessageComponent),
+        typeof(DirectionComponent),
+        typeof(DirectionListenerComponent),
         typeof(EntityIdComponent),
         typeof(GameObjectComponent),
         typeof(Hellth),
