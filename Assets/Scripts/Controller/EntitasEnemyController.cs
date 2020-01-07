@@ -18,7 +18,7 @@ public class EntitasEnemyController : MonoBehaviour
         entity.AddGameObject(gameObject);
         // todo config
         entity.AddMove(new Vector2(0, -1));
-        entity.AddMoveSpeed(2.0f);
+        entity.AddMoveSpeed(1.1f);
         entity.AddHellth(100, 100);
     }
 
@@ -29,8 +29,8 @@ public class EntitasEnemyController : MonoBehaviour
         _systems = new Feature("PlayerSystems")
             .Add(new CoreEventSystems(contexts));
 
-        _fixedSystems = new Feature("PlayerFixedUpdate");
-            //.Add(new ClampMoveSystem(contexts));
+        _fixedSystems = new Feature("PlayerFixedUpdate")
+            .Add(new ClampMoveSystem(contexts));
 
         _systems.Initialize();
         _fixedSystems.Initialize();
