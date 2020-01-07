@@ -20527,7 +20527,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 87743a04e1eda04438f2b8b439d91370, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 010075f2fd59a3940ac877e996a8e3e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -20628,24 +20628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642096e1ebfc902478fde137ef255962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staticDirection:
-  - static N
-  - static NW
-  - static W
-  - static SW
-  - static S
-  - static SE
-  - static E
-  - static NE
-  runDirections:
-  - run N
-  - rum NW
-  - run W
-  - run SW
-  - run S
-  - run SE
-  - run E
-  - run NE
 --- !u!95 &1611430368
 Animator:
   serializedVersion: 3
@@ -21281,7 +21263,7 @@ RectTransform:
   m_GameObject: {fileID: 3885605233408502725}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2278646, y: 0.2278646, z: 0.009114583}
+  m_LocalScale: {x: 0.2, y: 0.14, z: 0}
   m_Children:
   - {fileID: 3885605231611243848}
   - {fileID: 3885605233229363863}
@@ -21291,7 +21273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.39}
+  m_AnchoredPosition: {x: 0, y: 0.33}
   m_SizeDelta: {x: 2.47, y: 0.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8044781722483679196
