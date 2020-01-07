@@ -20477,11 +20477,11 @@ GameObject:
   - component: {fileID: 1611430361}
   - component: {fileID: 1611430364}
   - component: {fileID: 1611430363}
-  - component: {fileID: 1611430368}
   - component: {fileID: 1611430366}
   - component: {fileID: 1392402300}
   - component: {fileID: 1611430367}
   - component: {fileID: 1611430365}
+  - component: {fileID: 1611430368}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -20532,7 +20532,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.43, y: 0.7}
+  m_Size: {x: 0.41, y: 0.54}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -20948,7 +20948,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.28}
+  m_Size: {x: 1, y: 1.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

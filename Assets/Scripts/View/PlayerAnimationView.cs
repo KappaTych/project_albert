@@ -6,20 +6,6 @@ public class PlayerAnimationView : MonoBehaviour, IEventListener, IMoveListener
     private int lastDirection;
     private const float eps = 0.01f;
 
-    public string[] staticDirection =
-    {
-        "static N", "static NW", "static W",
-        "static SW", "static S", "static SE",
-        "static E", "static NE",
-    };
-
-    public string[] runDirections =
-    {
-        "run N", "rum NW", "run W",
-        "run SW", "run S", "run SE",
-        "run E", "run NE",
-    };
-
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -33,11 +19,10 @@ public class PlayerAnimationView : MonoBehaviour, IEventListener, IMoveListener
 
     public void OnMove(CoreEntity entity, UnityEngine.Vector2 movement)    
     {
-        var directionArray = movement.magnitude < eps ? staticDirection : runDirections;
-        // if run
         if (movement.magnitude >= eps)
             lastDirection = MovementExtensions.GetCounterClockDirection(movement);
 
-        anim.Play(directionArray[lastDirection]);
+        anim.SetFloat("dir", (float)lastDirection);
+        anim.SetBool("isMove", movement.magnitude >= eps);
     }
 }
