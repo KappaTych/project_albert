@@ -12,7 +12,7 @@ public class HealthBarView : MonoBehaviour, IEventListener, IHellthListener
         OnHellth(entity, entity.hellth.curValue, entity.hellth.maxValue);
     }
 
-    public void OnHellth(CoreEntity entity, float curValue, float maxValue)
+    public void OnHellth(CoreEntity entity, int curValue, int maxValue)
     {
         bar.GetComponent<BarView>().setValue(curValue, maxValue);
     }
