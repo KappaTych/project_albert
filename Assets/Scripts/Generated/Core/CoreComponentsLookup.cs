@@ -8,25 +8,31 @@
 //------------------------------------------------------------------------------
 public static class CoreComponentsLookup {
 
-    public const int Damage = 0;
-    public const int DebugMessage = 1;
-    public const int Direction = 2;
-    public const int DirectionListener = 3;
-    public const int EntityId = 4;
-    public const int GameObject = 5;
-    public const int Hellth = 6;
-    public const int HellthListener = 7;
-    public const int Move = 8;
-    public const int MoveListener = 9;
-    public const int MoveSpeed = 10;
+    public const int Attack = 0;
+    public const int AttackListener = 1;
+    public const int Damage = 2;
+    public const int DebugMessage = 3;
+    public const int Direction = 4;
+    public const int DirectionListener = 5;
+    public const int EnableMove = 6;
+    public const int EntityId = 7;
+    public const int GameObject = 8;
+    public const int Hellth = 9;
+    public const int HellthListener = 10;
+    public const int Move = 11;
+    public const int MoveListener = 12;
+    public const int MoveSpeed = 13;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
+        "Attack",
+        "AttackListener",
         "Damage",
         "DebugMessage",
         "Direction",
         "DirectionListener",
+        "EnableMove",
         "EntityId",
         "GameObject",
         "Hellth",
@@ -37,13 +43,16 @@ public static class CoreComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Damage),
+        typeof(AttackComponent),
+        typeof(AttackListenerComponent),
+        typeof(DamageComponent),
         typeof(DebugMessageComponent),
         typeof(DirectionComponent),
         typeof(DirectionListenerComponent),
+        typeof(EnableMoveComponent),
         typeof(EntityIdComponent),
         typeof(GameObjectComponent),
-        typeof(Hellth),
+        typeof(HellthComponent),
         typeof(HellthListenerComponent),
         typeof(MoveComponent),
         typeof(MoveListenerComponent),

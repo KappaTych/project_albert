@@ -18,7 +18,7 @@ public class ClampMoveSystem : ReactiveSystem<CoreEntity>
 
     protected override bool Filter(CoreEntity entity)
     {
-        return entity.hasMove && entity.hasMoveSpeed && entity.hasGameObject;
+        return entity.hasMove && entity.hasMoveSpeed && entity.hasGameObject && entity.isEnableMove;
     }
 
     protected override void Execute(List<CoreEntity> entities)

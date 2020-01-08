@@ -3,7 +3,7 @@ using Entitas;
 using Entitas.CodeGeneration.Attributes;
 
 [Core, Event(EventTarget.Self)]
-public class Hellth : IComponent
+public class HellthComponent : IComponent
 {
     public int curValue;
     public int maxValue;

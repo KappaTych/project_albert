@@ -29,6 +29,8 @@ public class VelocityMoveSystem : ReactiveSystem<CoreEntity>
 
             var pos = e.move.movement;
             rb.velocity = pos * e.moveSpeed.speed;
+            if (e.isEnableMove)
+                rb.velocity = Vector2.zero;
         }
     }
 }

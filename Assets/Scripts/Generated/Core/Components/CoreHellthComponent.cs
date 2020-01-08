@@ -8,12 +8,12 @@
 //------------------------------------------------------------------------------
 public partial class CoreEntity {
 
-    public Hellth hellth { get { return (Hellth)GetComponent(CoreComponentsLookup.Hellth); } }
+    public HellthComponent hellth { get { return (HellthComponent)GetComponent(CoreComponentsLookup.Hellth); } }
     public bool hasHellth { get { return HasComponent(CoreComponentsLookup.Hellth); } }
 
     public void AddHellth(int newCurValue, int newMaxValue) {
         var index = CoreComponentsLookup.Hellth;
-        var component = (Hellth)CreateComponent(index, typeof(Hellth));
+        var component = (HellthComponent)CreateComponent(index, typeof(HellthComponent));
         component.curValue = newCurValue;
         component.maxValue = newMaxValue;
         AddComponent(index, component);
@@ -21,7 +21,7 @@ public partial class CoreEntity {
 
     public void ReplaceHellth(int newCurValue, int newMaxValue) {
         var index = CoreComponentsLookup.Hellth;
-        var component = (Hellth)CreateComponent(index, typeof(Hellth));
+        var component = (HellthComponent)CreateComponent(index, typeof(HellthComponent));
         component.curValue = newCurValue;
         component.maxValue = newMaxValue;
         ReplaceComponent(index, component);

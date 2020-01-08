@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class CoreEntity {
 
-    public Damage damage { get { return (Damage)GetComponent(CoreComponentsLookup.Damage); } }
+    public DamageComponent damage { get { return (DamageComponent)GetComponent(CoreComponentsLookup.Damage); } }
     public bool hasDamage { get { return HasComponent(CoreComponentsLookup.Damage); } }
 
     public void AddDamage(int newValue) {
         var index = CoreComponentsLookup.Damage;
-        var component = (Damage)CreateComponent(index, typeof(Damage));
+        var component = (DamageComponent)CreateComponent(index, typeof(DamageComponent));
         component.value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceDamage(int newValue) {
         var index = CoreComponentsLookup.Damage;
-        var component = (Damage)CreateComponent(index, typeof(Damage));
+        var component = (DamageComponent)CreateComponent(index, typeof(DamageComponent));
         component.value = newValue;
         ReplaceComponent(index, component);
     }

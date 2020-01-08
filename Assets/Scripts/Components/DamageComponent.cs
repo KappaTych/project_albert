@@ -2,7 +2,7 @@
 using Entitas.CodeGeneration.Attributes;
 
 [Core]
-public class Damage : IComponent
+public class DamageComponent : IComponent
 {
     public int value;
 }
