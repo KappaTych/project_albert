@@ -21,6 +21,7 @@ public class EntitasPlayerController : MonoBehaviour
         entity.AddDirection(4);
         entity.AddMoveSpeed(2.0f);
         entity.AddHellth(100, 100);
+        entity.AddDamageInfo(10);
         entity.isEnableMove = true;
     }
 
@@ -29,8 +30,9 @@ public class EntitasPlayerController : MonoBehaviour
         var contexts = Contexts.sharedInstance;
 
         _systems = new Feature("PlayerSystems")
-            .Add(new NotMoveOnAttack(contexts))
+            .Add(new NotMoveOnAttackSystem(contexts))
             .Add(new CoreEventSystems(contexts))
+            .Add(new DamagesSystem(contexts))
             .Add(new DebugMessageSystem(contexts));
 
         _fixedSystems = new Feature("PlayerFixedUpdate")

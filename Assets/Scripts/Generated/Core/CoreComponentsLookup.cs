@@ -11,24 +11,26 @@ public static class CoreComponentsLookup {
     public const int Attack = 0;
     public const int AttackListener = 1;
     public const int Damage = 2;
-    public const int DebugMessage = 3;
-    public const int Direction = 4;
-    public const int DirectionListener = 5;
-    public const int EnableMove = 6;
-    public const int EntityId = 7;
-    public const int GameObject = 8;
-    public const int Hellth = 9;
-    public const int HellthListener = 10;
-    public const int Move = 11;
-    public const int MoveListener = 12;
-    public const int MoveSpeed = 13;
+    public const int DamageInfo = 3;
+    public const int DebugMessage = 4;
+    public const int Direction = 5;
+    public const int DirectionListener = 6;
+    public const int EnableMove = 7;
+    public const int EntityId = 8;
+    public const int GameObject = 9;
+    public const int Hellth = 10;
+    public const int HellthListener = 11;
+    public const int Move = 12;
+    public const int MoveListener = 13;
+    public const int MoveSpeed = 14;
 
-    public const int TotalComponents = 14;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
         "Attack",
         "AttackListener",
         "Damage",
+        "DamageInfo",
         "DebugMessage",
         "Direction",
         "DirectionListener",
@@ -46,6 +48,7 @@ public static class CoreComponentsLookup {
         typeof(AttackComponent),
         typeof(AttackListenerComponent),
         typeof(DamageComponent),
+        typeof(DamageInfoComponent),
         typeof(DebugMessageComponent),
         typeof(DirectionComponent),
         typeof(DirectionListenerComponent),

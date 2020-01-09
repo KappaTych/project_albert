@@ -2,12 +2,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class NotMoveOnAttack : ReactiveSystem<CoreEntity>
+public class NotMoveOnAttackSystem : ReactiveSystem<CoreEntity>
 {
     readonly IGroup<CoreEntity> _inputMove;
     readonly IMatcher<CoreEntity> _matcher = CoreMatcher.AllOf(CoreMatcher.Move, CoreMatcher.GameObject);
 
-    public NotMoveOnAttack(Contexts contexts) : base(contexts.core)
+    public NotMoveOnAttackSystem(Contexts contexts) : base(contexts.core)
     {
         _inputMove = contexts.core.GetGroup(_matcher);
     }
