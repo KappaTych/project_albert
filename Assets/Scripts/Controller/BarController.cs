@@ -1,32 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class BarController : MonoBehaviour
 {
-    public float fillSpeed = 0.5f;
-    
-    private Transform bar;
-    private float targetScale = 1;
+    public Image vlImage;
+    public Image effectImage;
+
+    [HideInInspector] public float vl;
+    public float maxVl;
+    [SerializeField] private float speed = 0.005f;
+
     void Start()
     {
-        bar = transform.Find("Fill Area");
+        vl = maxVl;
     }
 
     private void Update()
     {
-        if (bar.localScale.x < targetScale)
-            return;
-        SetScale(bar.localScale.x - fillSpeed * Time.deltaTime);
+        vlImage.fillAmount = vl / maxVl;
+
+        if (effectImage.fillAmount > vlImage.fillAmount)
+            effectImage.fillAmount -= speed;
+        else
+            effectImage.fillAmount = vlImage.fillAmount;
+        
     }
 
-    public void SetProggress(float s)
-    {
-        targetScale = bar.localScale.x - s;
-    }
-
-    private void SetScale(float s)
-    {
-        bar.localScale = new Vector3(s, 1);
-    }
 }
