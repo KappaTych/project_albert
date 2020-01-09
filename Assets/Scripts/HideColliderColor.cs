@@ -12,13 +12,12 @@ public class HideColliderColor : MonoBehaviour
 	{
 		tilemapRenderer = GetComponent<TilemapRenderer>();
 	}
-	// Start is called before the first frame update
-	private void Start()
+
+    private void Start()
     {
 		tilemapRenderer.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
