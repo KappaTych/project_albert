@@ -9,6 +9,7 @@ public class PortalScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Destroy(other.gameObject);
             SceneManager.LoadScene(nextSceneName);
         }
     }
