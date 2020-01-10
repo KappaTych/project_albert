@@ -22018,14 +22018,13 @@ GameObject:
   - component: {fileID: 6588454248768712376}
   - component: {fileID: 6588454248768712379}
   - component: {fileID: 6588454248768712378}
-  - component: {fileID: 6588454248768712373}
+  - component: {fileID: 6588454248768712372}
   - component: {fileID: 6588454248768712370}
   - component: {fileID: 6588454248768712371}
   - component: {fileID: 6588454248768712380}
-  - component: {fileID: 6588454248768712381}
   - component: {fileID: 6588454248768712382}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: 'Ranged Enemy '
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22066,8 +22065,8 @@ MonoBehaviour:
     maxHealth: 100
     attackDamage: 10
     moveSpeed: 1.1
---- !u!58 &6588454248768712373
-CircleCollider2D:
+--- !u!70 &6588454248768712372
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22079,9 +22078,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21539912}
-  serializedVersion: 2
-  m_Radius: 0.22528172
+  m_Offset: {x: -0.01, y: 0}
+  m_Size: {x: 0.35, y: 0.58}
+  m_Direction: 0
 --- !u!4 &6588454248768712376
 Transform:
   m_ObjectHideFlags: 0
@@ -22181,22 +22180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 2558132200458067031}
---- !u!114 &6588454248768712381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6588454248768712369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dccbcc1f90e6a0741a546da810a99924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minRange: 0.05
-  maxRange: 2
-  target: {fileID: 1611430362}
-  home: {fileID: 0}
 --- !u!114 &6588454248768712382
 MonoBehaviour:
   m_ObjectHideFlags: 0
