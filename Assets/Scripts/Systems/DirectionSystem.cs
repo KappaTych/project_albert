@@ -4,16 +4,13 @@ using System.Collections.Generic;
 
 public class DirectionSystem : ReactiveSystem<CoreEntity>
 {
-    readonly IGroup<CoreEntity> _inputMove;
+    readonly IMatcher<CoreEntity> _matcher = CoreMatcher.AllOf(CoreMatcher.Move);
 
-    public DirectionSystem(Contexts contexts) : base(contexts.core)
-    {
-        _inputMove = contexts.core.GetGroup(CoreMatcher.Move);
-    }
+    public DirectionSystem(Contexts contexts) : base(contexts.core) {}
 
     protected override ICollector<CoreEntity> GetTrigger(IContext<CoreEntity> context)
     {
-        return context.CreateCollector(CoreMatcher.Move);
+        return context.CreateCollector(_matcher);
     }
 
     protected override bool Filter(CoreEntity entity)

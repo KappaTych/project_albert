@@ -11,12 +11,12 @@ public class AttackDamageController : MonoBehaviour
         var other = collider?.transform?.parent?.gameObject;
         var entity = damageObj?.GetEntity<CoreEntity>();
         var other_entity = other?.GetEntity<CoreEntity>();
-        if (entity != null && other_entity != null && entity.hasPlayerStat)
+        if (entity != null && other_entity != null && entity.hasAttackDamage)
         {
             if (other_entity.hasDamage)
-                other_entity.damage.value += entity.playerStat.attackDamage;
+                other_entity.damage.value += entity.attackDamage.vl;
             else
-                other_entity.AddDamage(entity.playerStat.attackDamage);
+                other_entity.AddDamage(entity.attackDamage.vl);
         }
     }
 }

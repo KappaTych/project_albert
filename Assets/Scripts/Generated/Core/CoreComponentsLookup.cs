@@ -9,28 +9,30 @@
 public static class CoreComponentsLookup {
 
     public const int Attack = 0;
-    public const int AttackListener = 1;
-    public const int Damage = 2;
-    public const int Dead = 3;
-    public const int DeadListener = 4;
-    public const int DebugMessage = 5;
-    public const int Direction = 6;
-    public const int DirectionListener = 7;
-    public const int EnableMove = 8;
-    public const int EnemyStat = 9;
-    public const int EntityId = 10;
-    public const int GameObject = 11;
-    public const int Hellth = 12;
-    public const int HellthListener = 13;
-    public const int Move = 14;
-    public const int MoveListener = 15;
-    public const int MoveSpeed = 16;
-    public const int PlayerStat = 17;
+    public const int AttackDamage = 1;
+    public const int AttackListener = 2;
+    public const int Damage = 3;
+    public const int Dead = 4;
+    public const int DeadListener = 5;
+    public const int DebugMessage = 6;
+    public const int Direction = 7;
+    public const int DirectionListener = 8;
+    public const int EnableMove = 9;
+    public const int EnemyStat = 10;
+    public const int EntityId = 11;
+    public const int GameObject = 12;
+    public const int Hellth = 13;
+    public const int HellthListener = 14;
+    public const int Move = 15;
+    public const int MoveListener = 16;
+    public const int MoveSpeed = 17;
+    public const int PlayerStat = 18;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
         "Attack",
+        "AttackDamage",
         "AttackListener",
         "Damage",
         "Dead",
@@ -52,6 +54,7 @@ public static class CoreComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(AttackComponent),
+        typeof(AttackDamage),
         typeof(AttackListenerComponent),
         typeof(DamageComponent),
         typeof(DeadComponent),

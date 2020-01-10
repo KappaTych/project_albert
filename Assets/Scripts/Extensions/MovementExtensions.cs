@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class MovementExtensions
@@ -13,7 +14,20 @@ public static class MovementExtensions
      *        3   5
      *          4
      *          S
-    */ 
+    */
+    private static float m = Mathf.Sqrt(2.0f) / 2.0f;
+    private static Dictionary<int, Vector2> toVector =
+    new Dictionary<int, Vector2> {
+        {0, new Vector2(0, 1)   },
+        {1, new Vector2(-m, m)  },
+        {2, new Vector2(-1, 0)  },
+        {3, new Vector2(-m, -m) },
+        {4, new Vector2(0, -1)  },
+        {5, new Vector2(m, -m)  },
+        {6, new Vector2(1, 0)   },
+        {7, new Vector2(m, m)   },
+    };
+
     public static int GetCounterClockDirection(Vector2 d)
     {
         var no_d = d.normalized;
@@ -41,5 +55,10 @@ public static class MovementExtensions
         }
         float stepCount = angle / step;
         return Mathf.FloorToInt(stepCount);
+    }
+
+    public static Vector2 GetVector2(int d)
+    {
+        return toVector[d];
     }
 }
