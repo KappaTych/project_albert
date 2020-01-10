@@ -891,18 +891,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1392402295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611430360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d6c2fe90668b8946897f5526100f536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1392402300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -932,7 +920,6 @@ GameObject:
   - component: {fileID: 1392402300}
   - component: {fileID: 1611430367}
   - component: {fileID: 1611430365}
-  - component: {fileID: 1392402295}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1068,6 +1055,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db870ef9964e8224ea351e96127d4781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stat:
+    maxHealth: 100
+    maxMana: 0
+    manaRegen: 0
+    atkType: 0
+    attackDamage: 10
+    isEnableFireball: 0
+    fireballDamage: 0
+    fireballManaCost: 0
+    moveSpeed: 2
 --- !u!114 &1611430367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1351,6 +1348,7 @@ GameObject:
   - component: {fileID: 1678265752242547647}
   - component: {fileID: 1678265752242547646}
   - component: {fileID: 1678265752242547633}
+  - component: {fileID: 1678265752242547638}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -1358,6 +1356,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &1678265752242547638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678265752242547637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e17d9f6558646947be15c8ca73f2779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat:
+    maxHealth: 100
+    attackDamage: 10
+    moveSpeed: 1.1
 --- !u!4 &1678265752242547644
 Transform:
   m_ObjectHideFlags: 0

@@ -11,54 +11,63 @@ public static class CoreComponentsLookup {
     public const int Attack = 0;
     public const int AttackListener = 1;
     public const int Damage = 2;
-    public const int DamageInfo = 3;
-    public const int DebugMessage = 4;
-    public const int Direction = 5;
-    public const int DirectionListener = 6;
-    public const int EnableMove = 7;
-    public const int EntityId = 8;
-    public const int GameObject = 9;
-    public const int Hellth = 10;
-    public const int HellthListener = 11;
-    public const int Move = 12;
-    public const int MoveListener = 13;
-    public const int MoveSpeed = 14;
+    public const int Dead = 3;
+    public const int DeadListener = 4;
+    public const int DebugMessage = 5;
+    public const int Direction = 6;
+    public const int DirectionListener = 7;
+    public const int EnableMove = 8;
+    public const int EnemyStat = 9;
+    public const int EntityId = 10;
+    public const int GameObject = 11;
+    public const int Hellth = 12;
+    public const int HellthListener = 13;
+    public const int Move = 14;
+    public const int MoveListener = 15;
+    public const int MoveSpeed = 16;
+    public const int PlayerStat = 17;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 18;
 
     public static readonly string[] componentNames = {
         "Attack",
         "AttackListener",
         "Damage",
-        "DamageInfo",
+        "Dead",
+        "DeadListener",
         "DebugMessage",
         "Direction",
         "DirectionListener",
         "EnableMove",
+        "EnemyStat",
         "EntityId",
         "GameObject",
         "Hellth",
         "HellthListener",
         "Move",
         "MoveListener",
-        "MoveSpeed"
+        "MoveSpeed",
+        "PlayerStat"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(AttackComponent),
         typeof(AttackListenerComponent),
         typeof(DamageComponent),
-        typeof(DamageInfoComponent),
+        typeof(DeadComponent),
+        typeof(DeadListenerComponent),
         typeof(DebugMessageComponent),
         typeof(DirectionComponent),
         typeof(DirectionListenerComponent),
         typeof(EnableMoveComponent),
+        typeof(EnemyStatComponent),
         typeof(EntityIdComponent),
         typeof(GameObjectComponent),
         typeof(HellthComponent),
         typeof(HellthListenerComponent),
         typeof(MoveComponent),
         typeof(MoveListenerComponent),
-        typeof(MoveSpeedComponent)
+        typeof(MoveSpeedComponent),
+        typeof(PlayerStatComponent)
     };
 }

@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class EntitasEnemyController : MonoBehaviour
 {
-    Systems _systems;
-    Systems _fixedSystems;
+    private Systems _systems;
+    private Systems _fixedSystems;
+    [SerializeField] public EnemyStatComponent stat;
 
     void Awake()
     {
         var contexts = Contexts.sharedInstance;
         contexts.SubscribeId();
+        var entity = contexts.core.CreateEntity();
 
-        gameObject.Link(contexts.core.CreateEntity());
-
-        var entity = gameObject.GetEntity<CoreEntity>();
+        gameObject.Link(entity);
         entity.AddGameObject(gameObject);
+
+        entity.AddEnemyStat(stat);
+        entity.AddMoveSpeed(stat.moveSpeed);
+        entity.AddHellth(stat.maxHealth, stat.maxHealth);
+
         // todo config
-        entity.AddMove(new Vector2(0, 0));
         entity.AddDirection(4);
-        entity.AddMoveSpeed(1.1f);
-        entity.AddHellth(100, 100);
-        entity.AddDamageInfo(10);
-        entity.isEnableMove = true;
+        entity.AddMove(Vector2.zero);
+        entity.isEnableMove = true;        
     }
 
     void Start()
