@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class RangedEnemyAI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void Attack()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
