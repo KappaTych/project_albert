@@ -6,7 +6,7 @@ public class BarView : MonoBehaviour
     public Image vlImage;
     public Image effectImage;
 
-    private float vl;
+    [SerializeField] private float vl;
     [SerializeField] private float maxVl;
     [SerializeField] private float speed = 0.005f;
 

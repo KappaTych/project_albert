@@ -44,7 +44,7 @@ public class PlayerAnimationView : MonoBehaviour,
         gameObject.GetComponent<Animator>().SetTrigger("attack");
     }
 
-    public void OnAttackEnd()
+    public void OnAttackAnimationEnd()
     {
         e.isAttack = false;
     }
