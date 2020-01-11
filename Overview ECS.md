@@ -555,20 +555,106 @@ When you create a collector which whatches a group based on AnyOf matcher, you p
 ## Attributes
 
 The code generator currently supports the following attributes to be used with classes, interfaces and structs :
-- `[Context]`: You can use this attribute to make a component be available only in the specified context(s); e.g., `[MyContextName]`, `[Enemies]`, `[UI]`, etc. Improves memory footprint. It can also create components.
-When used simply as `[Context]` on a `class`, `interface` or `struct` the code generator will create a new `class` for you with the suffix `Component` and add this new class to the default context;
-- `[Unique]`: The code generator will provide additional methods to ensure that up to a maximum of one entity with this component exists.
-It will generate the following additional properties and methods for the component: `Context.{ComponentName}Entity`.
+- `[Context]`
+- `[Unique]`
 - `[FlagPrefix]`: Can be used to support custom prefixes for flag components only.
 - `[PrimaryEntityIndex]`: Can be used to limit entities to a unique component value.
 - `[EntityIndex]`: Can be used to search for entities with a component value.
-- `[CustomComponentName]`: Generates multiple components with different names for one class or interface. This can be used to to enforce uniformity across multiple components and avoid the tedious task of writing all the components individually.
+- `[CustomComponentName]`: Generates multiple components with different names for one class or interface. 
 - `[DontGenerate]`: The code generator will not process components with this attribute.
 - `[Event]`: The code generator will generate components, systems and interface to support reactive UI. Eliminate the need to write `RenderXSystems`.
 - `[Cleanup]`(Asset Store only): The code generator will generate systems to remove components or destroy entities.
 
+### Context
+This attribute can be used for the following purposes:
+- Add a component to the default Context.
+- Add a component to a custom Context.
+- Generate a component from a `class`, `interface` or `struct`.
+
+When used simply as `[Context]` on a `class`, `interface` or `struct` the code generator will create a new class for you with the suffix `Component` and add this new class to the default context.
+You can use this attribute to make a component be available only in the specified context(s); e.g., `[MyContextName]`, `[Enemies]`, `[UI]`, etc. Improves memory footprint. It can also create components.
+```C#
+using Entitas;
+using Entitas.CodeGeneration;
+
+[Game, Ui]
+public class SceneComponent : IComponent { public Scene Value; }
+
+[Game]
+public class Bullet
+{
+    // Since it doesn't derive from 'IComponent'
+    // it will be generated as 'BulletComponent'
+}
+```
+
+### Unique
+The code generator will provide additional methods to ensure that up to a maximum of one entity with this component exists.
+It will generate the following additional properties and methods for the component:
+- `Context.{ComponentName}Entity`
+- `Context.{ComponentName}.{ComponentProperty}` (non-flag components)
+- `Context.Set{ComponentName}({ComponentProperty})` (non-flag components)
+- `Context.Replace{ComponentName}({ComponentProperty})` (non-flag components)
+- `Context.Remove{ComponentName}()` (non-flag components)
+- `Context.has{ComponentName}()` (non-flag components)
+
+### FlagPrefix
+Flag components are empty classes, therefore have no fields and act as a form of boolean flag for entities. 
+If this attribute is used in a component with public fields it will silently fail and no custom prefix will be generated.
+
+```C#
+using Entitas;
+using Entitas.CodeGeneration;
+
+[FlagPrefix("flag")]
+public class DestroyComponent : IComponent {}
+
+entity.flagDestroy = true;
+```
+
+### PrimaryEntityIndex
+Using this attribute on a component value will prevent duplicates of that value being used when adding that component to an entity. 
+```C#
+using Entitas;
+using Entitas.CodeGeneration.Attributes;
+
+[Game]
+public class NameComponent : IComponent {
+    [PrimaryEntityIndex]
+    public string value;
+}
+
+Game.GetEntityWithName("Foo");
+```
+
+### EntityIndex
+Using this attribute on a component value will allow you to search the context for all entities with the component attached and specific values.
+
+```C#
+[Game]
+public class FactionComponent : IComponent {
+    [EntityIndex]
+    public string name;
+}
+
+Game.GetEntitiesWithFaction("Player");
+```
+### CustomComponentName
+This can be used to to enforce uniformity across multiple components and avoid the tedious task of writing all the components individually.
+
+The following will automatically generate PositionComponent, VelocityComponent and add them to the default context
+```C#
+[Context, CustomComponentName("Position", "Velocity")]
+public struct IntVector2 {
+  public int x;
+  public int y;
+}
+```
+
 ### Event 
 `[Event({EventTarget}, {EventType}, {priority})]`
+
+Will generate additional listener interfaces and components that react to component change.
 
 EventTarget
 - `.Self`: View's `OnPosition` will be called only when the listened `GameEntity`'s position is changed.
@@ -620,6 +706,5 @@ public class GameController : MonoBehaviour
         // Your systems here
         .Add(new GameEventSystems(contexts));
     }
-  }
 }
 ```

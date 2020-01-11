@@ -8,29 +8,32 @@
 //------------------------------------------------------------------------------
 public static class CoreComponentsLookup {
 
-    public const int Attack = 0;
-    public const int AttackDamage = 1;
-    public const int AttackListener = 2;
-    public const int Damage = 3;
-    public const int Dead = 4;
-    public const int DeadListener = 5;
-    public const int DebugMessage = 6;
-    public const int Direction = 7;
-    public const int DirectionListener = 8;
-    public const int EnableMove = 9;
-    public const int EnemyStat = 10;
-    public const int EntityId = 11;
-    public const int GameObject = 12;
-    public const int Hellth = 13;
-    public const int HellthListener = 14;
-    public const int Move = 15;
-    public const int MoveListener = 16;
-    public const int MoveSpeed = 17;
-    public const int PlayerStat = 18;
+    public const int AnyPlayerDeadListener = 0;
+    public const int Attack = 1;
+    public const int AttackDamage = 2;
+    public const int AttackListener = 3;
+    public const int Damage = 4;
+    public const int Dead = 5;
+    public const int DeadListener = 6;
+    public const int DebugMessage = 7;
+    public const int Direction = 8;
+    public const int DirectionListener = 9;
+    public const int EnableMove = 10;
+    public const int EnemyStat = 11;
+    public const int EntityId = 12;
+    public const int GameObject = 13;
+    public const int Hellth = 14;
+    public const int HellthListener = 15;
+    public const int Move = 16;
+    public const int MoveListener = 17;
+    public const int MoveSpeed = 18;
+    public const int PlayerDead = 19;
+    public const int PlayerStat = 20;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 21;
 
     public static readonly string[] componentNames = {
+        "AnyPlayerDeadListener",
         "Attack",
         "AttackDamage",
         "AttackListener",
@@ -49,10 +52,12 @@ public static class CoreComponentsLookup {
         "Move",
         "MoveListener",
         "MoveSpeed",
+        "PlayerDead",
         "PlayerStat"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AnyPlayerDeadListenerComponent),
         typeof(AttackComponent),
         typeof(AttackDamage),
         typeof(AttackListenerComponent),
@@ -71,6 +76,7 @@ public static class CoreComponentsLookup {
         typeof(MoveComponent),
         typeof(MoveListenerComponent),
         typeof(MoveSpeedComponent),
+        typeof(PlayerDeadComponent),
         typeof(PlayerStatComponent)
     };
 }

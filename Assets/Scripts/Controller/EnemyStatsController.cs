@@ -30,7 +30,7 @@ public class EnemyStatsController : MonoBehaviour
     {
         var entity = gameObject.GetEntity<CoreEntity>();
         gameObject.GetComponent<HealthBarView>().RegisterListeners(Contexts.sharedInstance, entity);
-        gameObject.GetComponent<PlayerAnimationView>().RegisterListeners(Contexts.sharedInstance, entity);
+        gameObject.GetComponent<EntityAnimationView>().RegisterListeners(Contexts.sharedInstance, entity);
     }
 
     void OnDestroy()

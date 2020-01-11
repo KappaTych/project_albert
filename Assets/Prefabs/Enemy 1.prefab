@@ -99,8 +99,6 @@ GameObject:
   - component: {fileID: 1965002150315189784}
   - component: {fileID: 1965002150315189785}
   - component: {fileID: 1965002150315189782}
-  - component: {fileID: 1965002150315189783}
-  - component: {fileID: 1965002150315189780}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -258,37 +256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 7182041421126653181}
---- !u!114 &1965002150315189783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965002150315189787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dccbcc1f90e6a0741a546da810a99924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minRange: 0.05
-  maxRange: 2
-  target: {fileID: 0}
-  home: {fileID: 0}
---- !u!114 &1965002150315189780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965002150315189787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 642096e1ebfc902478fde137ef255962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: dir
-  moving: isMoving
-  attacking: attack
 --- !u!1 &7182041420268917361
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vlImage: {fileID: 7182041420981710286}
   effectImage: {fileID: 7182041421302187438}
+  vl: 0
   maxVl: 0
   speed: 0.005
 --- !u!1 &7182041421302187436

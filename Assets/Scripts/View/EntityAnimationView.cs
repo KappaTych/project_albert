@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
-public class PlayerAnimationView : MonoBehaviour, 
-    IEventListener, IMoveListener, IDirectionListener, IAttackListener
+public class EntityAnimationView : MonoBehaviour, 
+    IEventListener, IMoveListener, IDirectionListener, IAttackListener, IDeadListener
 {
     private Animator anim;
 
     public string direction = "dir";
     public string moving = "isMoving";
     public string attacking = "attack";
+    public string dead = "dead";
 
     public CoreEntity e;
 
@@ -23,6 +24,7 @@ public class PlayerAnimationView : MonoBehaviour,
         entity.AddMoveListener(this);
         entity.AddDirectionListener(this);
         entity.AddAttackListener(this);
+        entity.AddDeadListener(this);
 
         OnMove(entity, entity.move.movement);
         OnDirection(entity, entity.direction.dir);
@@ -41,11 +43,21 @@ public class PlayerAnimationView : MonoBehaviour,
 
     public void OnAttack(CoreEntity entity)
     {
-        gameObject.GetComponent<Animator>().SetTrigger("attack");
+        gameObject.GetComponent<Animator>().SetTrigger(attacking);
     }
 
     public void OnAttackAnimationEnd()
     {
         e.isAttack = false;
+    }
+
+    public void OnDead(CoreEntity entity)
+    {
+        gameObject.GetComponent<Animator>().SetTrigger(dead);
+    }
+
+    public void onDeadAnimationEnd()
+    {
+        gameObject.SetActive(false);
     }
 }

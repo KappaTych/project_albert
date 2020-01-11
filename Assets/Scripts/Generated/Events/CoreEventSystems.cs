@@ -14,5 +14,6 @@ public sealed class CoreEventSystems : Feature {
         Add(new DirectionEventSystem(contexts)); // priority: 0
         Add(new HellthEventSystem(contexts)); // priority: 0
         Add(new MoveEventSystem(contexts)); // priority: 0
+        Add(new AnyPlayerDeadEventSystem(contexts)); // priority: 0
     }
 }

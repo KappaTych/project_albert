@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStatController : MonoBehaviour
 {
     [SerializeField] private PlayerStatComponent stat;
+    [SerializeField] private int startDir = 4;
 
     void Awake()
     {
@@ -19,9 +20,7 @@ public class PlayerStatController : MonoBehaviour
         entity.AddMoveSpeed(stat.moveSpeed);
         entity.AddHellth(stat.maxHealth, stat.maxHealth);
         entity.AddAttackDamage(stat.attackDamage);
-
-        // todo config
-        entity.AddDirection(4);
+        entity.AddDirection(startDir);
         entity.AddMove(Vector2.zero);
         entity.isEnableMove = true;
     }
@@ -30,7 +29,7 @@ public class PlayerStatController : MonoBehaviour
     {
         var entity = gameObject.GetEntity<CoreEntity>();
         gameObject.GetComponent<HealthBarView>().RegisterListeners(Contexts.sharedInstance, entity);
-        gameObject.GetComponent<PlayerAnimationView>().RegisterListeners(Contexts.sharedInstance, entity); 
+        gameObject.GetComponent<EntityAnimationView>().RegisterListeners(Contexts.sharedInstance, entity); 
     }
     void OnDestroy()
     {
