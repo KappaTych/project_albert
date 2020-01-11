@@ -21,9 +21,4 @@ public class FireballStatsControllere : MonoBehaviour
         entity.AddMoveSpeed(moveSpeed);
         entity.AddAttackDamage(attackDamage);
     }
-
-    void OnDestroy()
-    {
-        gameObject.Unlink();
-    }
 }

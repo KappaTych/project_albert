@@ -31,8 +31,4 @@ public class PlayerStatController : MonoBehaviour
         gameObject.GetComponent<HealthBarView>().RegisterListeners(Contexts.sharedInstance, entity);
         gameObject.GetComponent<EntityAnimationView>().RegisterListeners(Contexts.sharedInstance, entity); 
     }
-    void OnDestroy()
-    {
-        gameObject.Unlink();
-    }
 }
