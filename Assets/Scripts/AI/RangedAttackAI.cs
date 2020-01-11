@@ -33,10 +33,12 @@ public class RangedAttackAI : MonoBehaviour
     void Spawn()
     {
         var entity = gameObject.GetEntity<CoreEntity>();
-        var dir = MovementExtensions.GetVector2(entity.direction.dir);
+        var dir = target.position - transform.position;
         
         var instance = Instantiate(projectile, spawnTransform.position, Quaternion.identity);
-        instance.GetComponent<FireballStatsControllere>().move = dir;
-        //instance.GetComponent<Rigidbody2D>().velocity = dir * projectileSpeed;
+        var instance_entity = instance.GetEntity<CoreEntity>();
+        instance_entity?.ReplaceMove(dir);
+        instance_entity?.ReplaceMoveSpeed(projectileSpeed);
+        instance_entity?.ReplaceAttackDamage(entity.attackDamage.vl);
     }
 }

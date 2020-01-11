@@ -5,8 +5,8 @@ using UnityEngine;
 public class FireballStatsControllere : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-    public int attackDamage;
-    public Vector2 move;
+    [SerializeField] private int attackDamage;
+    [SerializeField] private Vector2 move;
 
     void Awake()
     {
@@ -16,40 +16,11 @@ public class FireballStatsControllere : MonoBehaviour
 
         gameObject.Link(entity);
         entity.AddGameObject(gameObject);
-
-        //entity.AddPlayerStat(stat);
-        entity.AddMoveSpeed(moveSpeed);
-        entity.AddHellth(1, 1);
-        entity.AddAttackDamage(1);
-
-        // todo config
-        entity.AddDirection(4);
         entity.AddMove(move);
         entity.isEnableMove = true;
-
-        //var contexts = Contexts.sharedInstance;
-        //contexts.SubscribeId();
-        //var entity = contexts.core.CreateEntity();
-
-        //gameObject.Link(entity);
-        //entity.AddGameObject(gameObject);
-        //entity.AddMoveSpeed(moveSpeed);
-        //entity.AddAttackDamage(attackDamage);
-        //entity.AddMove(move);
-        //entity.AddDirection(4);
-        //entity.isEnableMove = true;
+        entity.AddMoveSpeed(moveSpeed);
+        entity.AddAttackDamage(attackDamage);
     }
-
-    //private void Update()
-    //{
-    //    var rb = gameObject.GetComponent<Rigidbody2D>();
-
-    //    var input = Vector2.ClampMagnitude(move, 1);
-    //    var movement = input * moveSpeed;
-
-    //    var newPos = rb.position + movement * Time.fixedDeltaTime;
-    //    rb.MovePosition(newPos);
-    //}
 
     void OnDestroy()
     {
