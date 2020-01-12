@@ -135,9 +135,9 @@ GameObject:
   - component: {fileID: 197825839}
   - component: {fileID: 197825838}
   - component: {fileID: 197825837}
+  - component: {fileID: 197825844}
   - component: {fileID: 197825836}
   - component: {fileID: 197825835}
-  - component: {fileID: 197825844}
   m_Layer: 0
   m_Name: Melee Enemy
   m_TagString: Enemy
@@ -337,9 +337,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccbcc1f90e6a0741a546da810a99924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minRange: 0.3
+  minRange: 0.2
   maxRange: 2
-  target: {fileID: 1611430362}
+  target: {fileID: 1611430360}
   home: {fileID: 0}
 --- !u!1 &201364750
 GameObject:
@@ -621,6 +621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 764712157}
   - component: {fileID: 764712158}
+  - component: {fileID: 764712159}
   m_Layer: 8
   m_Name: DamageArea
   m_TagString: Untagged
@@ -668,6 +669,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31, y: 0.6}
   m_EdgeRadius: 0
+--- !u!114 &764712159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764712156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73485fb53ba1f7941b649d2d67007b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 197825834}
 --- !u!1 &806607425
 GameObject:
   m_ObjectHideFlags: 0
