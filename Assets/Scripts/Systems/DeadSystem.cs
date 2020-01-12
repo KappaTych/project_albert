@@ -24,7 +24,7 @@ public class DeadSystem : ReactiveSystem<CoreEntity>
         foreach (var e in entities)
         {
             e.isDead = e.hellth.curValue <= 0;
-            e.isEnableMove = e.isDead;
+            e.isEnableMove = !e.isDead;
             if (e.isDead && e.hasPlayerStat)
                 Contexts.sharedInstance.core.isPlayerDead = true; 
         }

@@ -14,7 +14,7 @@ public class HauntingEnemyAI : MonoBehaviour
     {
         var entity = gameObject.GetEntity<CoreEntity>();
         var distance = Vector3.Distance(target.position, transform.position);
-        if (distance <= maxRange && distance >= minRange)
+        if (!entity.attack.active && distance <= maxRange && distance >= minRange)
         {
             var dir = target.position - transform.position;
             entity.ReplaceMove(new Vector2(dir.x, dir.y));

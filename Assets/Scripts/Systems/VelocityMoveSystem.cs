@@ -20,7 +20,7 @@ public class VelocityMoveSystem : IExecuteSystem
 
             var pos = e.move.movement;
             rb.velocity = pos * e.moveSpeed.speed;
-            if (e.isEnableMove)
+            if (!e.isEnableMove)
                 rb.velocity = Vector2.zero;
         }
     }
