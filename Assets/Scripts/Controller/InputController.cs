@@ -18,7 +18,7 @@ public class InputController : MonoBehaviour
             entity.AddMove(move);
 
         if (Input.GetKeyDown(KeyCode.Q))
-            entity.isAttack = true;
+            entity.ReplaceAttack(true);
         
     }
 

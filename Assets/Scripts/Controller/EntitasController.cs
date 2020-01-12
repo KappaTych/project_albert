@@ -11,7 +11,7 @@ public class EntitasController : MonoBehaviour
         var contexts = Contexts.sharedInstance;
 
         _systems = new Feature("UpdateSystems")
-            .Add(new NotMoveOnAttackSystem(contexts))
+            .Add(new EnableMoveSystem(contexts))
             .Add(new CoreEventSystems(contexts))
             .Add(new DamagesSystem(contexts))
             .Add(new DebugMessageSystem(contexts))
@@ -19,7 +19,6 @@ public class EntitasController : MonoBehaviour
 
         _fixedSystems = new Feature("FixedUpdate")
             .Add(new ClampMoveSystem(contexts))
-            .Add(new VelocityMoveSystem(contexts))
             .Add(new DirectionSystem(contexts));
 
         _systems.Initialize();

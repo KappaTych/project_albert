@@ -41,14 +41,15 @@ public class EntityAnimationView : MonoBehaviour,
         anim.SetFloat(direction, (float)dir);
     }
 
-    public void OnAttack(CoreEntity entity)
+    public void OnAttack(CoreEntity entity, bool acrivate)
     {
-        gameObject.GetComponent<Animator>().SetTrigger(attacking);
+        if (acrivate)
+            gameObject.GetComponent<Animator>().SetTrigger(attacking);
     }
 
     public void OnAttackAnimationEnd()
     {
-        e.isAttack = false;
+        e.ReplaceAttack(false);
     }
 
     public void OnDead(CoreEntity entity)

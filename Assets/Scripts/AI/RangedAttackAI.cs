@@ -22,7 +22,7 @@ public class RangedAttackAI : MonoBehaviour
         LookAtTarget();
         if (distance <= range && target.activeInHierarchy)
         {
-            entity.isAttack = true;
+            entity.ReplaceAttack(true);
         }
     }
 

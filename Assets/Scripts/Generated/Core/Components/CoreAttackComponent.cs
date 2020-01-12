@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class CoreEntity {
 
-    static readonly AttackComponent attackComponent = new AttackComponent();
+    public AttackComponent attack { get { return (AttackComponent)GetComponent(CoreComponentsLookup.Attack); } }
+    public bool hasAttack { get { return HasComponent(CoreComponentsLookup.Attack); } }
 
-    public bool isAttack {
-        get { return HasComponent(CoreComponentsLookup.Attack); }
-        set {
-            if (value != isAttack) {
-                var index = CoreComponentsLookup.Attack;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : attackComponent;
+    public void AddAttack(bool newActive) {
+        var index = CoreComponentsLookup.Attack;
+        var component = (AttackComponent)CreateComponent(index, typeof(AttackComponent));
+        component.active = newActive;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceAttack(bool newActive) {
+        var index = CoreComponentsLookup.Attack;
+        var component = (AttackComponent)CreateComponent(index, typeof(AttackComponent));
+        component.active = newActive;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveAttack() {
+        RemoveComponent(CoreComponentsLookup.Attack);
     }
 }
 

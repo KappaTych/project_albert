@@ -18,19 +18,20 @@ public static class CoreComponentsLookup {
     public const int DebugMessage = 7;
     public const int Direction = 8;
     public const int DirectionListener = 9;
-    public const int EnableMove = 10;
-    public const int EnemyStat = 11;
-    public const int EntityId = 12;
-    public const int GameObject = 13;
-    public const int Hellth = 14;
-    public const int HellthListener = 15;
-    public const int Move = 16;
-    public const int MoveListener = 17;
-    public const int MoveSpeed = 18;
-    public const int PlayerDead = 19;
-    public const int PlayerStat = 20;
+    public const int DisableMoveOnAttack = 10;
+    public const int EnableMove = 11;
+    public const int EnemyStat = 12;
+    public const int EntityId = 13;
+    public const int GameObject = 14;
+    public const int Hellth = 15;
+    public const int HellthListener = 16;
+    public const int Move = 17;
+    public const int MoveListener = 18;
+    public const int MoveSpeed = 19;
+    public const int PlayerDead = 20;
+    public const int PlayerStat = 21;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "AnyPlayerDeadListener",
@@ -43,6 +44,7 @@ public static class CoreComponentsLookup {
         "DebugMessage",
         "Direction",
         "DirectionListener",
+        "DisableMoveOnAttack",
         "EnableMove",
         "EnemyStat",
         "EntityId",
@@ -67,6 +69,7 @@ public static class CoreComponentsLookup {
         typeof(DebugMessageComponent),
         typeof(DirectionComponent),
         typeof(DirectionListenerComponent),
+        typeof(DisableMoveOnAttack),
         typeof(EnableMoveComponent),
         typeof(EnemyStatComponent),
         typeof(EntityIdComponent),

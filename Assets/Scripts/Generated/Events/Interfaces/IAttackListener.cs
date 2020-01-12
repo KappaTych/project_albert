@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IAttackListener {
-    void OnAttack(CoreEntity entity);
+    void OnAttack(CoreEntity entity, bool active);
 }

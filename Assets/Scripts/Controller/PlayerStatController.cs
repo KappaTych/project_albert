@@ -22,6 +22,8 @@ public class PlayerStatController : MonoBehaviour
         entity.AddAttackDamage(stat.attackDamage);
         entity.AddDirection(startDir);
         entity.AddMove(Vector2.zero);
+        entity.AddAttack(false);
+        entity.isDisableMoveOnAttack = true;
         entity.isEnableMove = true;
     }
 

@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class ClampMoveSystem : IExecuteSystem
 {
     readonly IGroup<CoreEntity> _inputMove;
-    readonly IMatcher<CoreEntity> _matcher = CoreMatcher.AllOf(CoreMatcher.Move, CoreMatcher.GameObject, CoreMatcher.MoveSpeed);
+    readonly IMatcher<CoreEntity> _matcher = CoreMatcher.AllOf(CoreMatcher.Move, CoreMatcher.GameObject, 
+                                                               CoreMatcher.MoveSpeed);
 
     public ClampMoveSystem(Contexts contexts)
     {

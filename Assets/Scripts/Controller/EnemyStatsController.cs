@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyStatsController : MonoBehaviour
 {
     [SerializeField] public EnemyStatComponent stat;
+    [SerializeField] private int startDir = 1;
 
     void Awake()
     {
@@ -19,10 +20,10 @@ public class EnemyStatsController : MonoBehaviour
         entity.AddMoveSpeed(stat.moveSpeed);
         entity.AddHellth(stat.maxHealth, stat.maxHealth);
         entity.AddAttackDamage(stat.attackDamage);
-
-        // todo config
-        entity.AddDirection(1);
+        entity.AddAttack(false);
+        entity.AddDirection(startDir);
         entity.AddMove(Vector2.zero);
+        entity.isDisableMoveOnAttack = true;
         entity.isEnableMove = true;        
     }
 
