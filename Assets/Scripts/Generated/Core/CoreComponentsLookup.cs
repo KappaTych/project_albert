@@ -12,32 +12,36 @@ public static class CoreComponentsLookup {
     public const int Attack = 1;
     public const int AttackDamage = 2;
     public const int AttackListener = 3;
-    public const int Damage = 4;
-    public const int Dead = 5;
-    public const int DeadListener = 6;
-    public const int DebugMessage = 7;
-    public const int Direction = 8;
-    public const int DirectionListener = 9;
-    public const int DisableMoveOnAttack = 10;
-    public const int EnableMove = 11;
-    public const int EnemyStat = 12;
-    public const int EntityId = 13;
-    public const int GameObject = 14;
-    public const int Hellth = 15;
-    public const int HellthListener = 16;
-    public const int Move = 17;
-    public const int MoveListener = 18;
-    public const int MoveSpeed = 19;
-    public const int PlayerDead = 20;
-    public const int PlayerStat = 21;
+    public const int AttackType = 4;
+    public const int AttackTypeListener = 5;
+    public const int Damage = 6;
+    public const int Dead = 7;
+    public const int DeadListener = 8;
+    public const int DebugMessage = 9;
+    public const int Direction = 10;
+    public const int DirectionListener = 11;
+    public const int DisableMoveOnAttack = 12;
+    public const int EnableMove = 13;
+    public const int EnemyStat = 14;
+    public const int EntityId = 15;
+    public const int GameObject = 16;
+    public const int Hellth = 17;
+    public const int HellthListener = 18;
+    public const int Move = 19;
+    public const int MoveListener = 20;
+    public const int MoveSpeed = 21;
+    public const int PlayerDead = 22;
+    public const int PlayerStat = 23;
 
-    public const int TotalComponents = 22;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
         "AnyPlayerDeadListener",
         "Attack",
         "AttackDamage",
         "AttackListener",
+        "AttackType",
+        "AttackTypeListener",
         "Damage",
         "Dead",
         "DeadListener",
@@ -63,6 +67,8 @@ public static class CoreComponentsLookup {
         typeof(AttackComponent),
         typeof(AttackDamage),
         typeof(AttackListenerComponent),
+        typeof(AttackTypeComponent),
+        typeof(AttackTypeListenerComponent),
         typeof(DamageComponent),
         typeof(DeadComponent),
         typeof(DeadListenerComponent),

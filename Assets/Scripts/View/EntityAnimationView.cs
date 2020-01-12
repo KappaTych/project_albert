@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
 public class EntityAnimationView : MonoBehaviour, 
-    IEventListener, IMoveListener, IDirectionListener, IAttackListener, IDeadListener
+    IEventListener, IMoveListener, IDirectionListener, 
+    IAttackListener, IDeadListener, IAttackTypeListener
 {
     private Animator anim;
 
@@ -25,9 +26,18 @@ public class EntityAnimationView : MonoBehaviour,
         entity.AddDirectionListener(this);
         entity.AddAttackListener(this);
         entity.AddDeadListener(this);
+        entity.AddAttackTypeListener(this);
 
+        if (entity.hasAttackType)
+            OnAttackType(entity, entity.attackType.t);
         OnMove(entity, entity.move.movement);
         OnDirection(entity, entity.direction.dir);
+    }
+
+    public void OnAttackType(CoreEntity entity, eAttackType t)
+    {
+        var name = t.ToString().ToLower();
+        anim.SetTrigger(name);
     }
 
     public void OnMove(CoreEntity entity, UnityEngine.Vector2 movement)    
