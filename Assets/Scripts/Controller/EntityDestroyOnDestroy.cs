@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class EntityDestroyOnDestroy : MonoBehaviour
 {
+    private CoreEntity e;
+    private void Start()
+    {
+        e = gameObject.GetEntity<CoreEntity>();
+    }
+
     void OnDestroy()
     {
-        var e = gameObject.GetEntity<CoreEntity>();
+        e?.RemoveGameObject();
         gameObject.Unlink();
-        e.Destroy();
     }
 }
