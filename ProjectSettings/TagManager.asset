@@ -14,13 +14,13 @@ TagManager:
   - UI
   - 
   - 
-  - Attack
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - EnemyDamage
+  - PlayerDamage
+  - EnemyHurt
+  - PlayerHurt
+  - EnemyCollision
+  - AllHurt
   - 
   - 
   - 

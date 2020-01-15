@@ -11,7 +11,7 @@ public class HauntingEnemyAI : MonoBehaviour, ICollisionListener
     public Transform home;
 
     
-    private void Awake()
+    private void Start()
     {
         var entity = gameObject.GetEntity<CoreEntity>();
         entity.AddCollisionListener(this);
