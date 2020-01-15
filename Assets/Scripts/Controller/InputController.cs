@@ -12,20 +12,14 @@ public class InputController : MonoBehaviour
             return;
 
         var move = GetInput();
-        int horizontal = Mathf.RoundToInt(move.x);
-        int vertical = Mathf.RoundToInt(move.y);
-
-        if (entity.hasInputMove)
-            entity.ReplaceInputMove(move);
+        if (entity.hasMove)
+            entity.ReplaceMove(move);
         else 
-            entity.AddInputMove(move);
+            entity.AddMove(move);
 
-        if (horizontal != 0 || vertical != 0)
-        {
-            var movement = MovementExtensions.GetMovement(horizontal, vertical);
-            entity.ReplaceDirection(movement);
-        }
-
+        if (Input.GetKeyDown(KeyCode.Q))
+            entity.ReplaceAttack(true);
+        
     }
 
     private Vector2 GetInput()

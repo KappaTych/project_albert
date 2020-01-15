@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IDirectionListener {
-    void OnDirection(CoreEntity entity, eMovement dir);
+    void OnDirection(CoreEntity entity, int dir);
 }

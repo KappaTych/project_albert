@@ -11,14 +11,14 @@ public partial class CoreEntity {
     public DirectionComponent direction { get { return (DirectionComponent)GetComponent(CoreComponentsLookup.Direction); } }
     public bool hasDirection { get { return HasComponent(CoreComponentsLookup.Direction); } }
 
-    public void AddDirection(eMovement newDir) {
+    public void AddDirection(int newDir) {
         var index = CoreComponentsLookup.Direction;
         var component = (DirectionComponent)CreateComponent(index, typeof(DirectionComponent));
         component.dir = newDir;
         AddComponent(index, component);
     }
 
-    public void ReplaceDirection(eMovement newDir) {
+    public void ReplaceDirection(int newDir) {
         var index = CoreComponentsLookup.Direction;
         var component = (DirectionComponent)CreateComponent(index, typeof(DirectionComponent));
         component.dir = newDir;

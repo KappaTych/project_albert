@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IHellthListener {
-    void OnHellth(CoreEntity entity, float curValue, float maxValue);
+    void OnHellth(CoreEntity entity, int curValue, int maxValue);
 }

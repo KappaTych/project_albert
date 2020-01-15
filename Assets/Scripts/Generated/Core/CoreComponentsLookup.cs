@@ -8,39 +8,90 @@
 //------------------------------------------------------------------------------
 public static class CoreComponentsLookup {
 
-    public const int DebugMessage = 0;
-    public const int Direction = 1;
-    public const int DirectionListener = 2;
-    public const int EntityId = 3;
-    public const int GameObject = 4;
-    public const int Hellth = 5;
-    public const int HellthListener = 6;
-    public const int InputMove = 7;
-    public const int MoveSpeed = 8;
+    public const int AnyPlayerDeadListener = 0;
+    public const int Attack = 1;
+    public const int AttackDamage = 2;
+    public const int AttackListener = 3;
+    public const int AttackType = 4;
+    public const int AttackTypeListener = 5;
+    public const int Collision = 6;
+    public const int CollisionListener = 7;
+    public const int Damage = 8;
+    public const int Dead = 9;
+    public const int DeadListener = 10;
+    public const int DebugMessage = 11;
+    public const int Direction = 12;
+    public const int DirectionListener = 13;
+    public const int DisableMoveOnAttack = 14;
+    public const int EnableMove = 15;
+    public const int EnemyStat = 16;
+    public const int EntityId = 17;
+    public const int GameObject = 18;
+    public const int Hellth = 19;
+    public const int HellthListener = 20;
+    public const int Move = 21;
+    public const int MoveListener = 22;
+    public const int MoveSpeed = 23;
+    public const int PlayerDead = 24;
+    public const int PlayerStat = 25;
 
-    public const int TotalComponents = 9;
+    public const int TotalComponents = 26;
 
     public static readonly string[] componentNames = {
+        "AnyPlayerDeadListener",
+        "Attack",
+        "AttackDamage",
+        "AttackListener",
+        "AttackType",
+        "AttackTypeListener",
+        "Collision",
+        "CollisionListener",
+        "Damage",
+        "Dead",
+        "DeadListener",
         "DebugMessage",
         "Direction",
         "DirectionListener",
+        "DisableMoveOnAttack",
+        "EnableMove",
+        "EnemyStat",
         "EntityId",
         "GameObject",
         "Hellth",
         "HellthListener",
-        "InputMove",
-        "MoveSpeed"
+        "Move",
+        "MoveListener",
+        "MoveSpeed",
+        "PlayerDead",
+        "PlayerStat"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AnyPlayerDeadListenerComponent),
+        typeof(AttackComponent),
+        typeof(AttackDamage),
+        typeof(AttackListenerComponent),
+        typeof(AttackTypeComponent),
+        typeof(AttackTypeListenerComponent),
+        typeof(CollisionComponent),
+        typeof(CollisionListenerComponent),
+        typeof(DamageComponent),
+        typeof(DeadComponent),
+        typeof(DeadListenerComponent),
         typeof(DebugMessageComponent),
         typeof(DirectionComponent),
         typeof(DirectionListenerComponent),
+        typeof(DisableMoveOnAttack),
+        typeof(EnableMoveComponent),
+        typeof(EnemyStatComponent),
         typeof(EntityIdComponent),
         typeof(GameObjectComponent),
-        typeof(Hellth),
+        typeof(HellthComponent),
         typeof(HellthListenerComponent),
-        typeof(InputMoveComponent),
-        typeof(MoveSpeedComponent)
+        typeof(MoveComponent),
+        typeof(MoveListenerComponent),
+        typeof(MoveSpeedComponent),
+        typeof(PlayerDeadComponent),
+        typeof(PlayerStatComponent)
     };
 }
