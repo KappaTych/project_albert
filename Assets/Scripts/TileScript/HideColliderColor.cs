@@ -6,16 +6,16 @@ using UnityEngine.Tilemaps;
 public class HideColliderColor : MonoBehaviour
 {
 
-	private TilemapRenderer tilemapRenderer;
+	private TilemapRenderer _tilemapRenderer;
 
 	private void Awake()
 	{
-		tilemapRenderer = GetComponent<TilemapRenderer>();
+		_tilemapRenderer = GetComponent<TilemapRenderer>();
 	}
 
     private void Start()
     {
-		tilemapRenderer.enabled = false;
+		_tilemapRenderer.enabled = false;
     }
 
     void Update()
