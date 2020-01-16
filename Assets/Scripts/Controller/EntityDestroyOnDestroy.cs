@@ -11,6 +11,7 @@ public class EntityDestroyOnDestroy : MonoBehaviour
 
     void OnDestroy()
     {
+        e.isDestroyEntity = true;
         e?.RemoveGameObject();
         gameObject.Unlink();
     }

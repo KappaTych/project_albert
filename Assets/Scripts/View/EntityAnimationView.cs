@@ -11,7 +11,7 @@ public class EntityAnimationView : MonoBehaviour,
     public string attacking = "attack";
     public string dead = "dead";
 
-    public CoreEntity e;
+    private int entityId;
 
 
     void Awake()
@@ -24,7 +24,7 @@ public class EntityAnimationView : MonoBehaviour,
         if (entity == null)
             return;
 
-        e = entity;
+        entityId = entity.entityId.id;
         entity.AddMoveListener(this);
         entity.AddDirectionListener(this);
         entity.AddAttackListener(this);
@@ -51,24 +51,24 @@ public class EntityAnimationView : MonoBehaviour,
         entity.RemoveAttackTypeListener();
     }
 
-    public void OnAttackType(CoreEntity entity, eAttackType t)
+    public void OnAttackType(CoreEntity _, eAttackType t)
     {
         var name = t.ToString().ToLower();
         anim?.SetTrigger(name);
     }
 
-    public void OnMove(CoreEntity entity, UnityEngine.Vector2 movement)    
+    public void OnMove(CoreEntity entity, UnityEngine.Vector2 _)    
     {
         if (entity != null && entity.isEnableMove)
             anim?.SetBool(moving, entity.move.isMoving());
     }
 
-    public void OnDirection(CoreEntity entity, int dir)
+    public void OnDirection(CoreEntity _, int dir)
     {
         anim?.SetFloat(direction, (float)dir);
     }
 
-    public void OnAttack(CoreEntity entity, bool acrivate)
+    public void OnAttack(CoreEntity _, bool acrivate)
     {
         if (acrivate)
             gameObject.GetComponent<Animator>()?.SetTrigger(attacking);
@@ -76,7 +76,11 @@ public class EntityAnimationView : MonoBehaviour,
 
     public void OnAttackAnimationEnd()
     {
-        e?.ReplaceAttack(false);
+        var e = Contexts.sharedInstance.core.GetEntityWithEntityId(entityId);
+        if (e == null)
+            return;
+        
+        e.ReplaceAttack(false);
     }
 
     public void OnDead(CoreEntity entity)

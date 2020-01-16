@@ -15,7 +15,8 @@ public class EntitasController : MonoBehaviour
             .Add(new CoreEventSystems(contexts))
             .Add(new DamagesSystem(contexts))
             .Add(new DebugMessageSystem(contexts))
-            .Add(new DeadSystem(contexts));
+            .Add(new DeadSystem(contexts))
+            .Add(new DestroyEntitySystem(contexts));
 
         _fixedSystems = new Feature("FixedUpdate")
             .Add(new ClampMoveSystem(contexts))
@@ -41,8 +42,8 @@ public class EntitasController : MonoBehaviour
     {
         _fixedSystems.TearDown();
         _systems.TearDown();
-        //_fixedSystems.DeactivateReactiveSystems();
-        //_systems.DeactivateReactiveSystems();
+        _fixedSystems.DeactivateReactiveSystems();
+        _systems.DeactivateReactiveSystems();
         //Contexts.sharedInstance.Reset();
         _fixedSystems = null;
         _systems = null;

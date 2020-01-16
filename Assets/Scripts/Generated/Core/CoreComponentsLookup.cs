@@ -20,22 +20,23 @@ public static class CoreComponentsLookup {
     public const int Dead = 9;
     public const int DeadListener = 10;
     public const int DebugMessage = 11;
-    public const int Direction = 12;
-    public const int DirectionListener = 13;
-    public const int DisableMoveOnAttack = 14;
-    public const int EnableMove = 15;
-    public const int EnemyStat = 16;
-    public const int EntityId = 17;
-    public const int GameObject = 18;
-    public const int Hellth = 19;
-    public const int HellthListener = 20;
-    public const int Move = 21;
-    public const int MoveListener = 22;
-    public const int MoveSpeed = 23;
-    public const int PlayerDead = 24;
-    public const int PlayerStat = 25;
+    public const int DestroyEntity = 12;
+    public const int Direction = 13;
+    public const int DirectionListener = 14;
+    public const int DisableMoveOnAttack = 15;
+    public const int EnableMove = 16;
+    public const int EnemyStat = 17;
+    public const int EntityId = 18;
+    public const int GameObject = 19;
+    public const int Hellth = 20;
+    public const int HellthListener = 21;
+    public const int Move = 22;
+    public const int MoveListener = 23;
+    public const int MoveSpeed = 24;
+    public const int PlayerDead = 25;
+    public const int PlayerStat = 26;
 
-    public const int TotalComponents = 26;
+    public const int TotalComponents = 27;
 
     public static readonly string[] componentNames = {
         "AnyPlayerDeadListener",
@@ -50,6 +51,7 @@ public static class CoreComponentsLookup {
         "Dead",
         "DeadListener",
         "DebugMessage",
+        "DestroyEntity",
         "Direction",
         "DirectionListener",
         "DisableMoveOnAttack",
@@ -79,6 +81,7 @@ public static class CoreComponentsLookup {
         typeof(DeadComponent),
         typeof(DeadListenerComponent),
         typeof(DebugMessageComponent),
+        typeof(DestroyEntity),
         typeof(DirectionComponent),
         typeof(DirectionListenerComponent),
         typeof(DisableMoveOnAttack),

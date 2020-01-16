@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameOverController : MonoBehaviour, IAnyEventListener, IAnyPlayerDeadListener
 {
-    private CoreEntity e;
+    private int entityId;
 
     void Awake()
     {
@@ -18,12 +18,17 @@ public class GameOverController : MonoBehaviour, IAnyEventListener, IAnyPlayerDe
  
     public void RegisterListeners(Contexts contexts)
     {
-        e = contexts.core.CreateEntity();
+        var e = contexts.core.CreateEntity();
+        entityId = e.entityId.id;
         e.AddAnyPlayerDeadListener(this);
     }
     public void UnregisterListeners(Contexts contexts)
     {
+        var e = contexts.core.GetEntityWithEntityId(entityId);
+        if (e == null)
+            return;
         e.RemoveAnyPlayerDeadListener(this);
+        e.isDestroyEntity = true;
     }
 
     public void OnAnyPlayerDead(CoreEntity entity)
