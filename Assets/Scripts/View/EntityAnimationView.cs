@@ -44,11 +44,11 @@ public class EntityAnimationView : MonoBehaviour,
 
         OnMove(entity, Vector2.zero);
 
-        entity.RemoveMoveListener();
-        entity.RemoveDirectionListener();
-        entity.RemoveAttackListener();
-        entity.RemoveDeadListener();
-        entity.RemoveAttackTypeListener();
+        entity.RemoveMoveListener(this);
+        entity.RemoveDirectionListener(this);
+        entity.RemoveAttackListener(this);
+        entity.RemoveDeadListener(this);
+        entity.RemoveAttackTypeListener(this);
     }
 
     public void OnAttackType(CoreEntity _, eAttackType t)

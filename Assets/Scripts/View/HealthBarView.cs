@@ -17,7 +17,7 @@ public class HealthBarView : MonoBehaviour, IEventListener, IHellthListener
 
     public void UnregisterListeners(Contexts contexts, CoreEntity entity)
     {
-        entity?.RemoveHellthListener();
+        entity?.RemoveHellthListener(this);
     }
 
     public void OnHellth(CoreEntity entity, int curValue, int maxValue)

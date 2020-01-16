@@ -8,40 +8,42 @@
 //------------------------------------------------------------------------------
 public static class CoreComponentsLookup {
 
-    public const int AnyPlayerDeadListener = 0;
-    public const int Attack = 1;
-    public const int AttackDamage = 2;
-    public const int AttackListener = 3;
-    public const int AttackType = 4;
-    public const int AttackTypeListener = 5;
-    public const int Collision = 6;
-    public const int CollisionListener = 7;
-    public const int Damage = 8;
-    public const int Dead = 9;
-    public const int DeadListener = 10;
-    public const int DebugMessage = 11;
-    public const int DestroyEntity = 12;
-    public const int Direction = 13;
-    public const int DirectionListener = 14;
-    public const int DisableMoveOnAttack = 15;
-    public const int EnableMove = 16;
-    public const int EnemyStat = 17;
-    public const int EntityId = 18;
-    public const int GameObject = 19;
-    public const int Hellth = 20;
-    public const int HellthListener = 21;
-    public const int Mana = 22;
-    public const int ManaListener = 23;
-    public const int ManaSpeed = 24;
-    public const int Move = 25;
-    public const int MoveListener = 26;
-    public const int MoveSpeed = 27;
-    public const int PlayerDead = 28;
-    public const int PlayerStat = 29;
+    public const int AnimationManaBar = 0;
+    public const int AnyPlayerDeadListener = 1;
+    public const int Attack = 2;
+    public const int AttackDamage = 3;
+    public const int AttackListener = 4;
+    public const int AttackType = 5;
+    public const int AttackTypeListener = 6;
+    public const int Collision = 7;
+    public const int CollisionListener = 8;
+    public const int Damage = 9;
+    public const int Dead = 10;
+    public const int DeadListener = 11;
+    public const int DebugMessage = 12;
+    public const int DestroyEntity = 13;
+    public const int Direction = 14;
+    public const int DirectionListener = 15;
+    public const int DisableMoveOnAttack = 16;
+    public const int EnableMove = 17;
+    public const int EnemyStat = 18;
+    public const int EntityId = 19;
+    public const int GameObject = 20;
+    public const int Hellth = 21;
+    public const int HellthListener = 22;
+    public const int Mana = 23;
+    public const int ManaListener = 24;
+    public const int ManaSpeed = 25;
+    public const int Move = 26;
+    public const int MoveListener = 27;
+    public const int MoveSpeed = 28;
+    public const int PlayerDead = 29;
+    public const int PlayerStat = 30;
 
-    public const int TotalComponents = 30;
+    public const int TotalComponents = 31;
 
     public static readonly string[] componentNames = {
+        "AnimationManaBar",
         "AnyPlayerDeadListener",
         "Attack",
         "AttackDamage",
@@ -75,6 +77,7 @@ public static class CoreComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(AnimationManaBar),
         typeof(AnyPlayerDeadListenerComponent),
         typeof(AttackComponent),
         typeof(AttackDamage),

@@ -9,12 +9,9 @@ public class BarView : MonoBehaviour
     [SerializeField] private float vl;
     [SerializeField] private float maxVl;
     [SerializeField] private float speed = 0.005f;
-    private float eps = 0.001f;
+    private float eps = 0.01f;
 
-    void Start()
-    {
-        vl = maxVl;
-    }
+    void Start() {}
 
     private void Update()
     {
@@ -32,4 +29,8 @@ public class BarView : MonoBehaviour
     public void setValue(float v) { vl = v; }
 
     public void setValue(float v, float m) { vl = v; maxVl = m; }
+
+    public bool isAnimationActivate() {
+        return Mathf.Abs(effectImage.fillAmount - vlImage.fillAmount) > eps; 
+    }
 }
