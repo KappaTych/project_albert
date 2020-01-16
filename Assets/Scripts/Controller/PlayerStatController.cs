@@ -26,7 +26,14 @@ public class PlayerStatController : MonoBehaviour
     void Start()
     {
         var entity = gameObject.GetEntity<CoreEntity>();
-        gameObject.GetComponent<HealthBarView>().RegisterListeners(Contexts.sharedInstance, entity);
-        gameObject.GetComponent<EntityAnimationView>().RegisterListeners(Contexts.sharedInstance, entity); 
+        gameObject.GetComponent<HealthBarView>()?.RegisterListeners(Contexts.sharedInstance, entity);
+        gameObject.GetComponent<EntityAnimationView>()?.RegisterListeners(Contexts.sharedInstance, entity); 
+    }
+
+    private void OnDestroy()
+    {
+        var entity = gameObject.GetEntity<CoreEntity>();
+        gameObject.GetComponent<HealthBarView>()?.UnregisterListeners(Contexts.sharedInstance, entity);
+        gameObject.GetComponent<EntityAnimationView>()?.UnregisterListeners(Contexts.sharedInstance, entity);
     }
 }

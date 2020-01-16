@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 5825844795904336049}
   - component: {fileID: 5825844795904336054}
   m_Layer: 0
-  m_Name: Hard Melee Enemy 1
+  m_Name: Hard Melee Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,6 +12,11 @@ public class RangedAttackAI : MonoBehaviour
 
     [SerializeField] private float projectileSpeed = 2.0f;
 
+    private void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void Update()
     {
         if (target == null)

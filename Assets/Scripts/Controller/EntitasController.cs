@@ -11,7 +11,7 @@ public class EntitasController : MonoBehaviour
         var contexts = Contexts.sharedInstance;
 
         _systems = new Feature("UpdateSystems")
-            //.Add(new EnableMoveSystem(contexts))
+            .Add(new EnableMoveSystem(contexts))
             .Add(new CoreEventSystems(contexts))
             .Add(new DamagesSystem(contexts))
             .Add(new DebugMessageSystem(contexts))
@@ -41,5 +41,10 @@ public class EntitasController : MonoBehaviour
     {
         _fixedSystems.TearDown();
         _systems.TearDown();
+        //_fixedSystems.DeactivateReactiveSystems();
+        //_systems.DeactivateReactiveSystems();
+        //Contexts.sharedInstance.Reset();
+        _fixedSystems = null;
+        _systems = null;
     }
 }

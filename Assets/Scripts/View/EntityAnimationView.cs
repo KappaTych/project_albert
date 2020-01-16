@@ -21,6 +21,9 @@ public class EntityAnimationView : MonoBehaviour,
 
     public void RegisterListeners(Contexts contexts, CoreEntity entity)
     {
+        if (entity == null)
+            return;
+
         e = entity;
         entity.AddMoveListener(this);
         entity.AddDirectionListener(this);
@@ -33,38 +36,52 @@ public class EntityAnimationView : MonoBehaviour,
         OnMove(entity, entity.move.movement);
         OnDirection(entity, entity.direction.dir);
     }
+    
+    public void UnregisterListeners(Contexts contexts, CoreEntity entity)
+    {
+        if (entity == null)
+            return;
+
+        OnMove(entity, Vector2.zero);
+
+        entity.RemoveMoveListener();
+        entity.RemoveDirectionListener();
+        entity.RemoveAttackListener();
+        entity.RemoveDeadListener();
+        entity.RemoveAttackTypeListener();
+    }
 
     public void OnAttackType(CoreEntity entity, eAttackType t)
     {
         var name = t.ToString().ToLower();
-        anim.SetTrigger(name);
+        anim?.SetTrigger(name);
     }
 
     public void OnMove(CoreEntity entity, UnityEngine.Vector2 movement)    
     {
-        if (entity.isEnableMove)
-            anim.SetBool(moving, entity.move.isMoving());
+        if (entity != null && entity.isEnableMove)
+            anim?.SetBool(moving, entity.move.isMoving());
     }
 
     public void OnDirection(CoreEntity entity, int dir)
     {
-        anim.SetFloat(direction, (float)dir);
+        anim?.SetFloat(direction, (float)dir);
     }
 
     public void OnAttack(CoreEntity entity, bool acrivate)
     {
         if (acrivate)
-            gameObject.GetComponent<Animator>().SetTrigger(attacking);
+            gameObject.GetComponent<Animator>()?.SetTrigger(attacking);
     }
 
     public void OnAttackAnimationEnd()
     {
-        e.ReplaceAttack(false);
+        e?.ReplaceAttack(false);
     }
 
     public void OnDead(CoreEntity entity)
     {
-        gameObject.GetComponent<Animator>().SetTrigger(dead);
+        gameObject.GetComponent<Animator>()?.SetTrigger(dead);
     }
 
     public void onDeadAnimationEnd()

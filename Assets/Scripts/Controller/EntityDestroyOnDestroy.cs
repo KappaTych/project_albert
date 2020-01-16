@@ -1,5 +1,4 @@
-﻿using Entitas;
-using Entitas.Unity;
+﻿using Entitas.Unity;
 using UnityEngine;
 
 public class EntityDestroyOnDestroy : MonoBehaviour
