@@ -30,13 +30,16 @@ public static class CoreComponentsLookup {
     public const int GameObject = 19;
     public const int Hellth = 20;
     public const int HellthListener = 21;
-    public const int Move = 22;
-    public const int MoveListener = 23;
-    public const int MoveSpeed = 24;
-    public const int PlayerDead = 25;
-    public const int PlayerStat = 26;
+    public const int Mana = 22;
+    public const int ManaListener = 23;
+    public const int ManaSpeed = 24;
+    public const int Move = 25;
+    public const int MoveListener = 26;
+    public const int MoveSpeed = 27;
+    public const int PlayerDead = 28;
+    public const int PlayerStat = 29;
 
-    public const int TotalComponents = 27;
+    public const int TotalComponents = 30;
 
     public static readonly string[] componentNames = {
         "AnyPlayerDeadListener",
@@ -61,6 +64,9 @@ public static class CoreComponentsLookup {
         "GameObject",
         "Hellth",
         "HellthListener",
+        "Mana",
+        "ManaListener",
+        "ManaSpeed",
         "Move",
         "MoveListener",
         "MoveSpeed",
@@ -91,6 +97,9 @@ public static class CoreComponentsLookup {
         typeof(GameObjectComponent),
         typeof(HellthComponent),
         typeof(HellthListenerComponent),
+        typeof(ManaComponent),
+        typeof(ManaListenerComponent),
+        typeof(ManaSpeedComponent),
         typeof(MoveComponent),
         typeof(MoveListenerComponent),
         typeof(MoveSpeedComponent),

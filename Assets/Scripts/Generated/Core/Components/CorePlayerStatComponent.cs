@@ -11,12 +11,13 @@ public partial class CoreEntity {
     public PlayerStatComponent playerStat { get { return (PlayerStatComponent)GetComponent(CoreComponentsLookup.PlayerStat); } }
     public bool hasPlayerStat { get { return HasComponent(CoreComponentsLookup.PlayerStat); } }
 
-    public void AddPlayerStat(int newMaxHealth, int newMaxMana, int newManaRegen, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, float newMoveSpeed) {
+    public void AddPlayerStat(int newMaxHealth, int newMaxMana, int newManaRegen, float newManaTimeRegen, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, float newMoveSpeed) {
         var index = CoreComponentsLookup.PlayerStat;
         var component = (PlayerStatComponent)CreateComponent(index, typeof(PlayerStatComponent));
         component.maxHealth = newMaxHealth;
         component.maxMana = newMaxMana;
         component.manaRegen = newManaRegen;
+        component.manaTimeRegen = newManaTimeRegen;
         component.atkType = newAtkType;
         component.attackDamage = newAttackDamage;
         component.isEnableFireball = newIsEnableFireball;
@@ -26,12 +27,13 @@ public partial class CoreEntity {
         AddComponent(index, component);
     }
 
-    public void ReplacePlayerStat(int newMaxHealth, int newMaxMana, int newManaRegen, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, float newMoveSpeed) {
+    public void ReplacePlayerStat(int newMaxHealth, int newMaxMana, int newManaRegen, float newManaTimeRegen, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, float newMoveSpeed) {
         var index = CoreComponentsLookup.PlayerStat;
         var component = (PlayerStatComponent)CreateComponent(index, typeof(PlayerStatComponent));
         component.maxHealth = newMaxHealth;
         component.maxMana = newMaxMana;
         component.manaRegen = newManaRegen;
+        component.manaTimeRegen = newManaTimeRegen;
         component.atkType = newAtkType;
         component.attackDamage = newAttackDamage;
         component.isEnableFireball = newIsEnableFireball;

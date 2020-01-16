@@ -2539,15 +2539,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat:
+    moveSpeed: 2
     maxHealth: 30
-    maxMana: 0
-    manaRegen: 0
     atkType: 1
     attackDamage: 10
-    isEnableFireball: 0
-    fireballDamage: 0
-    fireballManaCost: 0
-    moveSpeed: 2
+    isEnableFireball: 1
+    fireballDamage: 2
+    fireballManaCost: 10
+    maxMana: 100
+    manaRegen: 3
+    manaTimeRegen: 1
   startDir: 4
 --- !u!114 &3564581959470001505
 MonoBehaviour:
