@@ -12,7 +12,8 @@ public class ManaBarView : MonoBehaviour, IEventListener, IManaListener
             return;
 
         entity.AddManaListener(this);
-        OnMana(entity, entity.mana.curValue, entity.mana.maxValue);
+        if (entity.hasMana && entity.hasManaSpeed)
+            OnMana(entity, entity.mana.curValue, entity.mana.maxValue);
     }
 
     public void UnregisterListeners(Contexts contexts, CoreEntity entity)
@@ -33,6 +34,7 @@ public class ManaBarView : MonoBehaviour, IEventListener, IManaListener
         if (barView == null || e == null)
             return;
 
+        bar?.SetActive(e.hasManaSpeed && e.hasMana);
         e.isAnimationManaBar = barView.isAnimationActivate(); 
     }
 }
