@@ -1,20 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private Transform target;
+    [CanBeNull] private Transform target;
     [SerializeField] private float smoothMoveSpeed;
+    private bool _istargetNull;
 
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        var trg = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
+        _istargetNull = trg == null;
+        if (!_istargetNull)
+        {
+	        target = trg;
+        }
     }
 
     private void LateUpdate()
     {
-        if (target == null)
+        if (_istargetNull)
             return;
         
         transform.position = Vector3.Lerp(
