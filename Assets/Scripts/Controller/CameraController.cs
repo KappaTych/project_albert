@@ -5,24 +5,30 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [CanBeNull] private Transform target;
+    [CanBeNull] public Transform target;
     [SerializeField] private float smoothMoveSpeed;
-    private bool _istargetNull;
-
-    private void Start()
-    {
-        var trg = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
-        _istargetNull = trg == null;
-        if (!_istargetNull)
-        {
-	        target = trg;
-        }
-    }
+    private bool _istargetNull = true;
 
     private void LateUpdate()
     {
         if (_istargetNull)
+        {        
+            var trg = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
+            _istargetNull = trg == null;
+            if (!_istargetNull)
+            {
+                target = trg;
+            }
+            else
+            {
+                return;;
+            }
+        }
+
+        if (transform == null)
+        {
             return;
+        }
         
         transform.position = Vector3.Lerp(
             transform.position, 

@@ -18,7 +18,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void OnLevelWasLoaded(int level)
+    public void SpawnPlayer()
     {
         Transform enterence = GameObject.FindGameObjectWithTag("Entrance").transform;
         Instantiate(DefaultPlayer, enterence.position, Quaternion.identity);
