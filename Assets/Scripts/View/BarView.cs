@@ -9,6 +9,7 @@ public class BarView : MonoBehaviour
     [SerializeField] private float vl;
     [SerializeField] private float maxVl;
     [SerializeField] private float speed = 0.005f;
+    private float eps = 0.001f;
 
     void Start()
     {
@@ -19,8 +20,10 @@ public class BarView : MonoBehaviour
     {
         vlImage.fillAmount = vl / maxVl;
 
-        if (effectImage.fillAmount > vlImage.fillAmount)
+        if (effectImage.fillAmount - vlImage.fillAmount > eps)
             effectImage.fillAmount -= speed;
+        else if (vlImage.fillAmount - effectImage.fillAmount > eps)
+            effectImage.fillAmount += speed;
         else
             effectImage.fillAmount = vlImage.fillAmount;
         
