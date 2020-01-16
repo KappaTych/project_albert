@@ -7,6 +7,7 @@ public class GameOverController : MonoBehaviour, IAnyEventListener, IAnyPlayerDe
     {
         RegisterListeners(Contexts.sharedInstance);
     }
+
     public void RegisterListeners(Contexts contexts)
     {
         contexts.core.CreateEntity().AddAnyPlayerDeadListener(this);
@@ -14,6 +15,8 @@ public class GameOverController : MonoBehaviour, IAnyEventListener, IAnyPlayerDe
 
     public void OnAnyPlayerDead(CoreEntity entity)
     {
+        var target = GameObject.FindGameObjectWithTag("Player");
+        Destroy(target);
         SceneManager.LoadScene("DeathScreen");
     }
 }

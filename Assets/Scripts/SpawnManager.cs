@@ -12,16 +12,17 @@ public class SpawnManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     private void OnLevelWasLoaded(int level)
     {
         var enterence = GameObject.Find("Enterence").transform;
         var pl = Instantiate(DefaultPlayer, enterence.position, Quaternion.identity);
+        pl.SetActive(true);
         var save = SaveManager.Instance?.LoadSave();
         if (save != null)
         {
@@ -33,6 +34,5 @@ public class SpawnManager : MonoBehaviour
             entity.AddPlayerStat(save.Stats);
             entity.ReplaceHellth(save.HP);
         }
-        pl.SetActive(true);
     }
 }

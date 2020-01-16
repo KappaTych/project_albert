@@ -14,24 +14,28 @@ public class Save
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance { get; set; }
+    public string defaultLevel = "SampleScene";
 
     private void Awake()
     {
+        Debug.Log("save manager awake");
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            Save(defaultLevel);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     public Save CreateSave(string lastLevel)
     {
+        Debug.Log("save level with name" + lastLevel);
         var save = new Save();
-        var entity = GameObject.Find("Player")?.GetEntity<CoreEntity>();
+        var entity = GameObject.FindGameObjectWithTag("Player")?.GetEntity<CoreEntity>();
         var playerStat = entity.playerStat;
         save.HP = entity.hellth.curValue;
         save.Exp = 0;
@@ -50,14 +54,33 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    private Save SaveAndReturn(string lastLevel = "")
+    {
+        var save = CreateSave(lastLevel);
+        var bf = new BinaryFormatter();
+        using (var file = File.Create("save.save"))
+        {
+            bf.Serialize(file, save);
+        }
+        return save;
+    }
+
     public Save LoadSave()
     {
         Save save;
         var bf = new BinaryFormatter();
-        using (var file = File.Open("save.save", FileMode.Open))
+        if (File.Exists("save.save"))
         {
-            save = (Save)bf.Deserialize(file);
+            using (var file = File.Open("save.save", FileMode.Open))
+            {
+                save = (Save)bf.Deserialize(file);
+            }
         }
+        else
+        {
+            save = SaveAndReturn(defaultLevel);
+        }
+        Debug.Log("load level with name" + save.LastLevel);
         return save;
     }
 }

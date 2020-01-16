@@ -3,14 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class DeathScreenController : MonoBehaviour
 {
-    public string loadedScence;
-
     public void RestartButtonPressed()
     {
-        SceneManager.LoadScene(loadedScence);
+        var sm = SaveManager.Instance;
+        var ls = sm.LoadSave();
+        var loadedScene = ls.LastLevel;
+        SceneManager.LoadScene(loadedScene);
     }
 
-    public void MainButtonPressed()
+    public void MenuButtonPressed()
     {
         SceneManager.LoadScene("Menu");
     }
