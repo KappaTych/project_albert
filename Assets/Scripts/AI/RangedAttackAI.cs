@@ -27,7 +27,7 @@ public class RangedAttackAI : MonoBehaviour
         LookAtTarget();
         if (distance <= range && target.activeInHierarchy)
         {
-            entity.ReplaceAttack(true);
+            entity?.ReplaceAttack(true);
         }
     }
 
@@ -38,15 +38,15 @@ public class RangedAttackAI : MonoBehaviour
 
         var r = target.transform.position - transform.position;
         var dir = MovementExtensions.GetCounterClockDirection(r);
-        gameObject.GetEntity<CoreEntity>().ReplaceDirection(dir);
+        gameObject.GetEntity<CoreEntity>()?.ReplaceDirection(dir);
     }
 
     void Spawn()
     {
-        if (target == null)
+        var entity = gameObject.GetEntity<CoreEntity>();
+        if (target == null || entity == null)
             return;
 
-        var entity = gameObject.GetEntity<CoreEntity>();
         var dir = target.transform.position - transform.position;
         
         var instance = Instantiate(projectile, spawnTransform.position, Quaternion.identity);

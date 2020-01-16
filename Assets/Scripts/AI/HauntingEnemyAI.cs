@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HauntingEnemyAI : MonoBehaviour, ICollisionListener
 {
-    // Enemy
     [SerializeField] private float minRange = .0f, maxRange = .0f;
 
     public GameObject target;
@@ -14,7 +13,7 @@ public class HauntingEnemyAI : MonoBehaviour, ICollisionListener
     private void Start()
     {
         var entity = gameObject.GetEntity<CoreEntity>();
-        entity.AddCollisionListener(this);
+        entity?.AddCollisionListener(this);
 
         target = GameObject.FindGameObjectWithTag("Player");
     }
@@ -23,9 +22,9 @@ public class HauntingEnemyAI : MonoBehaviour, ICollisionListener
     {
         var entity = gameObject.GetEntity<CoreEntity>();
 
-        if (target == null || !target.activeInHierarchy)
+        if (target == null || entity == null || !target.activeInHierarchy)
         {
-            entity.ReplaceMove(Vector2.zero);
+            entity?.ReplaceMove(Vector2.zero);
             return;
         }
         
@@ -55,7 +54,7 @@ public class HauntingEnemyAI : MonoBehaviour, ICollisionListener
 
         var r = gm.position - transform.position;
         var dir = MovementExtensions.GetCounterClockDirection(r);
-        gameObject.GetEntity<CoreEntity>().ReplaceDirection(dir);
+        gameObject.GetEntity<CoreEntity>()?.ReplaceDirection(dir);
     }
 
 

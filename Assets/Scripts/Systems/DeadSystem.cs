@@ -6,8 +6,11 @@ using System.Collections.Generic;
 public class DeadSystem : ReactiveSystem<CoreEntity>
 {
     readonly IMatcher<CoreEntity> _matcher = CoreMatcher.AllOf(CoreMatcher.Hellth);
+    readonly Contexts _contexts;
 
-    public DeadSystem(Contexts contexts) : base(contexts.core) { }
+    public DeadSystem(Contexts contexts) : base(contexts.core) {
+        _contexts = contexts;
+    }
 
     protected override ICollector<CoreEntity> GetTrigger(IContext<CoreEntity> context)
     {
@@ -26,7 +29,7 @@ public class DeadSystem : ReactiveSystem<CoreEntity>
             e.isDead = e.hellth.curValue <= 0;
             e.isEnableMove = !e.isDead;
             if (e.isDead && e.hasPlayerStat)
-                Contexts.sharedInstance.core.isPlayerDead = true; 
+                _contexts.core.isPlayerDead = true; 
         }
     }
 }

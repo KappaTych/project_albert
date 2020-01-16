@@ -40,10 +40,10 @@ public class EntitasController : MonoBehaviour
 
     void OnDestroy()
     {
-        _fixedSystems.TearDown();
-        _systems.TearDown();
         _fixedSystems.DeactivateReactiveSystems();
         _systems.DeactivateReactiveSystems();
+        _fixedSystems.TearDown();
+        _systems.TearDown();
         //Contexts.sharedInstance.Reset();
         _fixedSystems = null;
         _systems = null;
