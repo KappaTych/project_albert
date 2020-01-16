@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 7532238496501761154}
   - component: {fileID: 7532238496501761160}
   m_Layer: 0
-  m_Name: 'Ranged Enemy '
+  m_Name: Ranged Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,8 +588,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat:
-    maxHealth: 100
-    attackDamage: 10
+    maxHealth: 10
+    attackDamage: 4
     moveSpeed: 1.1
   startDir: 1
 --- !u!114 &7532238496501761161
