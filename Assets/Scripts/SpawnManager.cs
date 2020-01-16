@@ -20,8 +20,19 @@ public class SpawnManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        Transform enterence = GameObject.Find("Enterence").transform;
-        Instantiate(DefaultPlayer, enterence.position, Quaternion.identity);
-        DefaultPlayer.SetActive(true);
+        var enterence = GameObject.Find("Enterence").transform;
+        var pl = Instantiate(DefaultPlayer, enterence.position, Quaternion.identity);
+        var save = SaveManager.Instance?.LoadSave();
+        if (save != null)
+        {
+            var entity = pl?.GetEntity<CoreEntity>();
+            if (entity.hasPlayerStat)
+            {
+                entity.RemovePlayerStat();
+            }
+            entity.AddPlayerStat(save.Stats);
+            entity.ReplaceHellth(save.HP);
+        }
+        pl.SetActive(true);
     }
 }
