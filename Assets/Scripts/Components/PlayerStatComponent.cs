@@ -23,6 +23,7 @@ public class PlayerStatComponent : IComponent
     public bool isEnableFireball = false;
     public int fireballDamage = 0;
     public int fireballManaCost = 0;
+    public float fireballSpeed = .0f;
 
     public int maxMana = 0;
     public int manaRegen = 0;
