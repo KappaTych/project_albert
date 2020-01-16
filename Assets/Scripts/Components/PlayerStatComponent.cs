@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using Unity;
+using Entitas;
 using System;
 
 [Serializable]
@@ -34,5 +35,25 @@ public partial class CoreEntity
     {
         var index = CoreComponentsLookup.PlayerStat;
         AddComponent(index, stat);
+
+        if (hasMoveSpeed)
+            ReplaceMoveSpeed(stat.moveSpeed);
+        else 
+            AddMoveSpeed(stat.moveSpeed);
+        
+        if (hasHellth)
+            ReplaceHellth(hellth.curValue, stat.maxHealth);
+        else 
+            AddHellth(stat.maxHealth, stat.maxHealth);
+
+        if (hasAttackDamage)
+            ReplaceAttackDamage(stat.attackDamage);
+        else 
+            AddAttackDamage(stat.attackDamage);
+
+        if (hasAttackType)
+            ReplaceAttackType(stat.atkType);
+        else
+            AddAttackType(stat.atkType);
     }
 }

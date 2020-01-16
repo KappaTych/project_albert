@@ -19,5 +19,20 @@ public partial class CoreEntity
     {
         var index = CoreComponentsLookup.EnemyStat;
         AddComponent(index, stat);
+
+        if (hasMoveSpeed)
+            ReplaceMoveSpeed(stat.moveSpeed);
+        else
+            AddMoveSpeed(stat.moveSpeed);
+
+        if (hasHellth)
+            ReplaceHellth(hellth.curValue, stat.maxHealth);
+        else
+            AddHellth(stat.maxHealth, stat.maxHealth);
+
+        if (hasAttackDamage)
+            ReplaceAttackDamage(stat.attackDamage);
+        else
+            AddAttackDamage(stat.attackDamage);
     }
 }

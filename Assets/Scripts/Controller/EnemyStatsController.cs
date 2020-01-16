@@ -17,13 +17,9 @@ public class EnemyStatsController : MonoBehaviour
         entity.AddGameObject(gameObject);
 
         entity.AddEnemyStat(stat);
-        entity.AddMoveSpeed(stat.moveSpeed);
-        entity.AddHellth(stat.maxHealth, stat.maxHealth);
-        entity.AddAttackDamage(stat.attackDamage);
-        entity.AddAttack(false);
         entity.AddDirection(startDir);
+        entity.AddAttack(false);
         entity.AddMove(Vector2.zero);
-        entity.isDisableMoveOnAttack = true;
         entity.isEnableMove = true;        
     }
 
