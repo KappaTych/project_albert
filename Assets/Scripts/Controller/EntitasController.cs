@@ -6,9 +6,10 @@ public class EntitasController : MonoBehaviour
     private Systems _systems;
     private Systems _fixedSystems;
 
-    void Start()
+    void Awake()
     {
         var contexts = Contexts.sharedInstance;
+        contexts.SubscribeId();
 
         _systems = new Feature("UpdateSystems")
             .Add(new EnableMoveSystem(contexts))
@@ -21,7 +22,10 @@ public class EntitasController : MonoBehaviour
         _fixedSystems = new Feature("FixedUpdate")
             .Add(new ClampMoveSystem(contexts))
             .Add(new DirectionSystem(contexts));
+    }
 
+    void Start() 
+    {
         _systems.Initialize();
         _fixedSystems.Initialize();
     }

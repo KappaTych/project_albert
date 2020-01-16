@@ -11,7 +11,6 @@ public class FireballStatsControllere : MonoBehaviour
     void Awake()
     {
         var contexts = Contexts.sharedInstance;
-        contexts.SubscribeId();
         var entity = contexts.core.CreateEntity();
 
         gameObject.Link(entity);

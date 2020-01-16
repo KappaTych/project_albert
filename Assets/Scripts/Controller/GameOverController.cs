@@ -6,7 +6,7 @@ public class GameOverController : MonoBehaviour, IAnyEventListener, IAnyPlayerDe
 {
     private int entityId;
 
-    void Awake()
+    void Start()
     {
         RegisterListeners(Contexts.sharedInstance);
     }
