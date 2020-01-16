@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6cdaa9a21f73b4ea918065cb8c5b53, type: 3}
-  m_Name: BoulderTile_2
+  m_Name: PortalTile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: daaaae34d0708154baf5d0353d396a41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a75e7a5e30cdc6b49ac13442bd98c4ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 2380845940672560231, guid: 1ba7f711283138c4c848a6d2075aa8e8,
+  m_InstancedGameObject: {fileID: 4973256752785547932, guid: 2519cd65d1b575a40881c64028c5382d,
     type: 3}
-  m_Flags: 4
+  m_Flags: 5
   m_ColliderType: 1

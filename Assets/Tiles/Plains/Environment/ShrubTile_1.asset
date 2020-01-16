@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6cdaa9a21f73b4ea918065cb8c5b53, type: 3}
-  m_Name: BoulderTile_1
+  m_Name: ShrubTile_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 494805abc9a0585449ccf7818e78a834, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc35b99c608814a459c8fcca6569bb7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 1822517412727471388, guid: 46e9791933c693b4db16c37a247ccdc1,
+  m_InstancedGameObject: {fileID: 7892183464418926654, guid: f8d3d0b6a1cce0c4d93bc9670b7e8e5d,
     type: 3}
   m_Flags: 4
   m_ColliderType: 1

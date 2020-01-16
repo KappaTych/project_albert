@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6cdaa9a21f73b4ea918065cb8c5b53, type: 3}
-  m_Name: GrassTile_1
+  m_Name: GrassTile_2
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 432494848cd5fa4488c8f90069b0982e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47b5725ff292d4640b9d51ef4c74a00c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 4815473681951651332, guid: 0e9e04973e13c1b4289a20e839c449b6,
+  m_InstancedGameObject: {fileID: 8873307492900561150, guid: 44a691ff0805558468d1883993a6b9e4,
     type: 3}
   m_Flags: 4
   m_ColliderType: 1

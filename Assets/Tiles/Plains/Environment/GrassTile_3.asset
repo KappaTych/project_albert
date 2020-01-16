@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6cdaa9a21f73b4ea918065cb8c5b53, type: 3}
-  m_Name: PlanksTile_3
+  m_Name: GrassTile_3
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: a326f9c1a909d3441a0bd01ad4f23ae8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec8ccc2cf6da86f4ab9b11f4a2ab3d2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 1358222585805256602, guid: 5a0b7b8790b7ced4889f62b9e705c62b,
+  m_InstancedGameObject: {fileID: 1345568674341369953, guid: 67bbafcb7f32ec94797141ea3c05994b,
     type: 3}
   m_Flags: 4
   m_ColliderType: 1
