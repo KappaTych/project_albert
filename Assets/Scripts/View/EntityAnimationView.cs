@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
-public class EntityAnimationView : MonoBehaviour, 
-    IEventListener, IMoveListener, IDirectionListener, 
-    IAttackListener, IDeadListener, IAttackTypeListener
+public class EntityAnimationView : MonoBehaviour,
+    IEventListener, IMoveListener, IDirectionListener,
+    IAttackListener, IDeadListener, IAttackTypeListener,
+    IFireBallListener
 {
     private Animator anim;
 
@@ -10,6 +11,7 @@ public class EntityAnimationView : MonoBehaviour,
     public string moving = "isMoving";
     public string attacking = "attack";
     public string dead = "dead";
+    public string fireball = "fireball";
 
     private int entityId;
 
@@ -30,13 +32,14 @@ public class EntityAnimationView : MonoBehaviour,
         entity.AddAttackListener(this);
         entity.AddDeadListener(this);
         entity.AddAttackTypeListener(this);
+        entity.AddFireBallListener(this);
 
         if (entity.hasAttackType)
             OnAttackType(entity, entity.attackType.t);
         OnMove(entity, entity.move.movement);
         OnDirection(entity, entity.direction.dir);
     }
-    
+
     public void UnregisterListeners(Contexts contexts, CoreEntity entity)
     {
         if (entity == null)
@@ -49,6 +52,7 @@ public class EntityAnimationView : MonoBehaviour,
         entity.RemoveAttackListener(this);
         entity.RemoveDeadListener(this);
         entity.RemoveAttackTypeListener(this);
+        entity.RemoveFireBallListener(this);
     }
 
     public void OnAttackType(CoreEntity _, eAttackType t)
@@ -57,7 +61,7 @@ public class EntityAnimationView : MonoBehaviour,
         anim?.SetTrigger(name);
     }
 
-    public void OnMove(CoreEntity entity, UnityEngine.Vector2 _)    
+    public void OnMove(CoreEntity entity, UnityEngine.Vector2 _)
     {
         if (entity != null && entity.isEnableMove)
             anim?.SetBool(moving, entity.move.isMoving());
@@ -79,7 +83,7 @@ public class EntityAnimationView : MonoBehaviour,
         var e = Contexts.sharedInstance.core.GetEntityWithEntityId(entityId);
         if (e == null)
             return;
-        
+
         e.ReplaceAttack(false);
     }
 
@@ -91,5 +95,18 @@ public class EntityAnimationView : MonoBehaviour,
     public void onDeadAnimationEnd()
     {
         gameObject.SetActive(false);
+    }
+
+    public void OnFireBall(CoreEntity entity)
+    {
+        anim?.SetTrigger(fireball);
+    }
+
+    public void OnFireballEnd()
+    {
+        var e = Contexts.sharedInstance.core.GetEntityWithEntityId(entityId);
+        if (e == null)
+            return;
+        e.isFireBall = false;
     }
 }

@@ -28,19 +28,21 @@ public static class CoreComponentsLookup {
     public const int EnableMove = 17;
     public const int EnemyStat = 18;
     public const int EntityId = 19;
-    public const int GameObject = 20;
-    public const int Hellth = 21;
-    public const int HellthListener = 22;
-    public const int Mana = 23;
-    public const int ManaListener = 24;
-    public const int ManaSpeed = 25;
-    public const int Move = 26;
-    public const int MoveListener = 27;
-    public const int MoveSpeed = 28;
-    public const int PlayerDead = 29;
-    public const int PlayerStat = 30;
+    public const int FireBall = 20;
+    public const int FireBallListener = 21;
+    public const int GameObject = 22;
+    public const int Hellth = 23;
+    public const int HellthListener = 24;
+    public const int Mana = 25;
+    public const int ManaListener = 26;
+    public const int ManaSpeed = 27;
+    public const int Move = 28;
+    public const int MoveListener = 29;
+    public const int MoveSpeed = 30;
+    public const int PlayerDead = 31;
+    public const int PlayerStat = 32;
 
-    public const int TotalComponents = 31;
+    public const int TotalComponents = 33;
 
     public static readonly string[] componentNames = {
         "AnimationManaBar",
@@ -63,6 +65,8 @@ public static class CoreComponentsLookup {
         "EnableMove",
         "EnemyStat",
         "EntityId",
+        "FireBall",
+        "FireBallListener",
         "GameObject",
         "Hellth",
         "HellthListener",
@@ -97,6 +101,8 @@ public static class CoreComponentsLookup {
         typeof(EnableMoveComponent),
         typeof(EnemyStatComponent),
         typeof(EntityIdComponent),
+        typeof(FireBallComponent),
+        typeof(FireBallListenerComponent),
         typeof(GameObjectComponent),
         typeof(HellthComponent),
         typeof(HellthListenerComponent),
