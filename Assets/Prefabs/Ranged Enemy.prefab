@@ -651,3 +651,4 @@ MonoBehaviour:
   moving: isMoving
   attacking: attack
   dead: dead
+  fireball: fireball
