@@ -7,25 +7,15 @@ public class CameraController : MonoBehaviour
 {
     [CanBeNull] public Transform target;
     [SerializeField] private float smoothMoveSpeed;
-    private bool _istargetNull = true;
 
     private void LateUpdate()
     {
-        if (_istargetNull)
-        {        
-            var trg = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
-            _istargetNull = trg == null;
-            if (!_istargetNull)
-            {
-                target = trg;
-            }
-            else
-            {
-                return;;
-            }
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
         }
 
-        if (transform == null)
+        if (transform == null || target == null)
         {
             return;
         }
