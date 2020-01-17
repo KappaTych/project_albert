@@ -149,6 +149,8 @@ GameObject:
   - component: {fileID: 3188963451788766149}
   - component: {fileID: 752383072623431930}
   - component: {fileID: 3156524230252212336}
+  - component: {fileID: 4080577134392443905}
+  - component: {fileID: 1206596253443666238}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -298,10 +300,10 @@ MonoBehaviour:
     maxHealth: 30
     atkType: 1
     attackDamage: 10
-    isEnableFireball: 0
-    fireballDamage: 2
+    isEnableFireball: 1
+    fireballDamage: 10
     fireballManaCost: 10
-    fireballSpeed: 0.7
+    fireballSpeed: 2.3
     maxMana: 30
     manaRegen: 3
     manaTimeRegen: 1
@@ -400,6 +402,34 @@ MonoBehaviour:
   projectile: {fileID: 3139146911286090836, guid: 6895e38570973714da1066cdd06d70c9,
     type: 3}
   spawnTransform: {fileID: 6977931158496766028}
+--- !u!114 &4080577134392443905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752383072623431933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ea2a3fed8fe954ab6d27f70fbf3163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateTime: 2
+  decreaseValue: 2
+--- !u!114 &1206596253443666238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752383072623431933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6433afa7f5c3949bcca1178a705869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m: 2
+  increaseValue: 8
 --- !u!1 &752383073268023356
 GameObject:
   m_ObjectHideFlags: 0
