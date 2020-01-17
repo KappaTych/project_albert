@@ -308,6 +308,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 268a7407529bb8b47b7b51a9c973cf38, type: 3}
+--- !u!1001 &719488039
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5132028475159675928, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_Name
+      value: Transition
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 750.44403
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 88.696304
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -763.279
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675930, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132028475159675931, guid: 6d8698de335bda944a30e79510b5d0c6,
+        type: 3}
+      propertyPath: nextLevel
+      value: WinScene
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6d8698de335bda944a30e79510b5d0c6, type: 3}
 --- !u!1001 &859593853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,19 +555,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14f6e274f1f17e74a9de45f437bb80e3, type: 3}
---- !u!114 &501777385903740152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 513174638682824980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 366abcd361172e1479dcec4289bd3395, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextLevel: Level_2
 --- !u!1 &513174638682824980
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +567,6 @@ GameObject:
   - component: {fileID: 513174638682824981}
   - component: {fileID: 513174638682824987}
   - component: {fileID: 5668233388036885265}
-  - component: {fileID: 501777385903740152}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -553,6 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityId: 0
+  isRegister: 0
 --- !u!114 &5668233388036885265
 MonoBehaviour:
   m_ObjectHideFlags: 0
