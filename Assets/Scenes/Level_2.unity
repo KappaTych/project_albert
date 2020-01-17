@@ -479,6 +479,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8995955633447408034, guid: 14f6e274f1f17e74a9de45f437bb80e3,
+        type: 3}
+      propertyPath: m_FocalLength
+      value: 27.466913
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995955633447408034, guid: 14f6e274f1f17e74a9de45f437bb80e3,
+        type: 3}
+      propertyPath: field of view
+      value: 47.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14f6e274f1f17e74a9de45f437bb80e3, type: 3}
 --- !u!114 &501777385903740152
@@ -553,6 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityId: 0
+  isRegister: 0
 --- !u!114 &5668233388036885265
 MonoBehaviour:
   m_ObjectHideFlags: 0

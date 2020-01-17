@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 435053280937226312}
   - component: {fileID: 6244777490672015321}
   m_Layer: 0
-  m_Name: plains-sliced_74
+  m_Name: Tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 23e19a7533432f44fadd57a590b3b5be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
