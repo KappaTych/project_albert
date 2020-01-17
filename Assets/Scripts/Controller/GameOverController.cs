@@ -31,8 +31,8 @@ public class GameOverController : MonoBehaviour, IAnyEventListener, IAnyPlayerDe
         isRegister = false;
         if (e == null)
             return;
-        //e.RemoveAnyPlayerDeadListener(this, false);
-        //e.isDestroyEntity = true;
+        e.RemoveAnyPlayerDeadListener(this, false);
+        e.isDestroyEntity = true;
     }
 
     public void OnAnyPlayerDead(CoreEntity entity)

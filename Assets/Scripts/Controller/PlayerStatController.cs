@@ -21,6 +21,9 @@ public class PlayerStatController : MonoBehaviour
         entity.AddAttack(false);
         entity.AddMove(Vector2.zero);
         entity.isEnableMove = true;
+
+        contexts.core.isPlayerDead = false;
+
     }
 
     void Start()

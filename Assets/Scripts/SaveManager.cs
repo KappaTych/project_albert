@@ -15,7 +15,7 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance { get; set; }
     public string defaultLevel = "SampleScene";
-    private bool firstSave = false;
+    
 
     private void Awake()
     {
@@ -24,22 +24,15 @@ public class SaveManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            firstSave = true;
         }
-        else
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
+
+        
     }
 
-    private void Start()
-    {
-        if (firstSave)
-        {
-            firstSave = false;
-            Save(defaultLevel);
-        }
-    }
 
     public Save CreateSave(string lastLevel)
     {
