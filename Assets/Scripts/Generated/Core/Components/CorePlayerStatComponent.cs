@@ -11,7 +11,7 @@ public partial class CoreEntity {
     public PlayerStatComponent playerStat { get { return (PlayerStatComponent)GetComponent(CoreComponentsLookup.PlayerStat); } }
     public bool hasPlayerStat { get { return HasComponent(CoreComponentsLookup.PlayerStat); } }
 
-    public void AddPlayerStat(float newMoveSpeed, int newMaxHealth, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, int newMaxMana, int newManaRegen, float newManaTimeRegen) {
+    public void AddPlayerStat(float newMoveSpeed, int newMaxHealth, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, float newFireballSpeed, int newMaxMana, int newManaRegen, float newManaTimeRegen) {
         var index = CoreComponentsLookup.PlayerStat;
         var component = (PlayerStatComponent)CreateComponent(index, typeof(PlayerStatComponent));
         component.moveSpeed = newMoveSpeed;
@@ -21,13 +21,14 @@ public partial class CoreEntity {
         component.isEnableFireball = newIsEnableFireball;
         component.fireballDamage = newFireballDamage;
         component.fireballManaCost = newFireballManaCost;
+        component.fireballSpeed = newFireballSpeed;
         component.maxMana = newMaxMana;
         component.manaRegen = newManaRegen;
         component.manaTimeRegen = newManaTimeRegen;
         AddComponent(index, component);
     }
 
-    public void ReplacePlayerStat(float newMoveSpeed, int newMaxHealth, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, int newMaxMana, int newManaRegen, float newManaTimeRegen) {
+    public void ReplacePlayerStat(float newMoveSpeed, int newMaxHealth, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, float newFireballSpeed, int newMaxMana, int newManaRegen, float newManaTimeRegen) {
         var index = CoreComponentsLookup.PlayerStat;
         var component = (PlayerStatComponent)CreateComponent(index, typeof(PlayerStatComponent));
         component.moveSpeed = newMoveSpeed;
@@ -37,6 +38,7 @@ public partial class CoreEntity {
         component.isEnableFireball = newIsEnableFireball;
         component.fireballDamage = newFireballDamage;
         component.fireballManaCost = newFireballManaCost;
+        component.fireballSpeed = newFireballSpeed;
         component.maxMana = newMaxMana;
         component.manaRegen = newManaRegen;
         component.manaTimeRegen = newManaTimeRegen;

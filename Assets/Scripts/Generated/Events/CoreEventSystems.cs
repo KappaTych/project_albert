@@ -16,6 +16,7 @@ public sealed class CoreEventSystems : Feature {
         Add(new DirectionEventSystem(contexts)); // priority: 0
         Add(new FireBallEventSystem(contexts)); // priority: 0
         Add(new HellthEventSystem(contexts)); // priority: 0
+        Add(new KillMobEventSystem(contexts)); // priority: 0
         Add(new ManaEventSystem(contexts)); // priority: 0
         Add(new MoveEventSystem(contexts)); // priority: 0
         Add(new AnyPlayerDeadEventSystem(contexts)); // priority: 0

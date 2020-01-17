@@ -4,11 +4,13 @@ using System.Collections.Generic;
 
 public class DamagesSystem : ReactiveSystem<CoreEntity>, ICleanupSystem
 {
+    readonly Contexts _contexts;
     readonly IGroup<CoreEntity> _damageGroup;
     readonly IMatcher<CoreEntity> _matcher = CoreMatcher.AllOf(CoreMatcher.Damage);
 
     public DamagesSystem(Contexts contexts) : base(contexts.core)
     {
+        _contexts = contexts; 
         _damageGroup = contexts.core.GetGroup(_matcher);
     }
 
@@ -27,6 +29,11 @@ public class DamagesSystem : ReactiveSystem<CoreEntity>, ICleanupSystem
         foreach (var e in entities)
         {
             e.ReplaceHellth(e.hellth.curValue - e.damage.value);
+            var other_entity = _contexts.core.GetEntityWithEntityId(e.damage.damageOnwerId);
+            if (e.hellth.curValue <= 0 && other_entity != null && other_entity.hasKillMob)
+            {
+                other_entity.killMob.count += 1;
+            }
 
         }
     }

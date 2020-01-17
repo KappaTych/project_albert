@@ -5,4 +5,5 @@ using Entitas.CodeGeneration.Attributes;
 public class DamageComponent : IComponent
 {
     public int value;
+    public int damageOnwerId;
 }

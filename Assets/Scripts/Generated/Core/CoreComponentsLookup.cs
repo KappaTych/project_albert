@@ -33,16 +33,18 @@ public static class CoreComponentsLookup {
     public const int GameObject = 22;
     public const int Hellth = 23;
     public const int HellthListener = 24;
-    public const int Mana = 25;
-    public const int ManaListener = 26;
-    public const int ManaSpeed = 27;
-    public const int Move = 28;
-    public const int MoveListener = 29;
-    public const int MoveSpeed = 30;
-    public const int PlayerDead = 31;
-    public const int PlayerStat = 32;
+    public const int KillMob = 25;
+    public const int KillMobListener = 26;
+    public const int Mana = 27;
+    public const int ManaListener = 28;
+    public const int ManaSpeed = 29;
+    public const int Move = 30;
+    public const int MoveListener = 31;
+    public const int MoveSpeed = 32;
+    public const int PlayerDead = 33;
+    public const int PlayerStat = 34;
 
-    public const int TotalComponents = 33;
+    public const int TotalComponents = 35;
 
     public static readonly string[] componentNames = {
         "AnimationManaBar",
@@ -70,6 +72,8 @@ public static class CoreComponentsLookup {
         "GameObject",
         "Hellth",
         "HellthListener",
+        "KillMob",
+        "KillMobListener",
         "Mana",
         "ManaListener",
         "ManaSpeed",
@@ -106,6 +110,8 @@ public static class CoreComponentsLookup {
         typeof(GameObjectComponent),
         typeof(HellthComponent),
         typeof(HellthListenerComponent),
+        typeof(KillMobComponent),
+        typeof(KillMobListenerComponent),
         typeof(ManaComponent),
         typeof(ManaListenerComponent),
         typeof(ManaSpeedComponent),

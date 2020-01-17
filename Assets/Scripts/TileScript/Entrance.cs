@@ -11,7 +11,8 @@ public class Entrance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<SpawnManager>().SpawnPlayer();
+        var gc = GameObject.FindGameObjectWithTag("GameController");
+        gc?.GetComponent<SpawnManager>()?.SpawnPlayer();
         _defaultColor = GetComponent<SpriteRenderer>().color;
         _transparentColor = _defaultColor;
         _transparentColor.a = 0;

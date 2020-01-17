@@ -11,17 +11,19 @@ public partial class CoreEntity {
     public DamageComponent damage { get { return (DamageComponent)GetComponent(CoreComponentsLookup.Damage); } }
     public bool hasDamage { get { return HasComponent(CoreComponentsLookup.Damage); } }
 
-    public void AddDamage(int newValue) {
+    public void AddDamage(int newValue, int newDamageOnwerId) {
         var index = CoreComponentsLookup.Damage;
         var component = (DamageComponent)CreateComponent(index, typeof(DamageComponent));
         component.value = newValue;
+        component.damageOnwerId = newDamageOnwerId;
         AddComponent(index, component);
     }
 
-    public void ReplaceDamage(int newValue) {
+    public void ReplaceDamage(int newValue, int newDamageOnwerId) {
         var index = CoreComponentsLookup.Damage;
         var component = (DamageComponent)CreateComponent(index, typeof(DamageComponent));
         component.value = newValue;
+        component.damageOnwerId = newDamageOnwerId;
         ReplaceComponent(index, component);
     }
 
