@@ -32,6 +32,9 @@ public class PlayerStatController : MonoBehaviour
         gameObject.GetComponent<HealthBarView>()?.RegisterListeners(Contexts.sharedInstance, entity);
         gameObject.GetComponent<ManaBarView>()?.RegisterListeners(Contexts.sharedInstance, entity);
         gameObject.GetComponent<EntityAnimationView>()?.RegisterListeners(Contexts.sharedInstance, entity); 
+
+        var gc = GameObject.FindGameObjectWithTag("GameController");
+        gc?.GetComponent<ExperienceController>()?.RegisterListeners(Contexts.sharedInstance, entity);
     }
 
     private void OnDestroy()
@@ -40,5 +43,8 @@ public class PlayerStatController : MonoBehaviour
         gameObject.GetComponent<HealthBarView>()?.UnregisterListeners(Contexts.sharedInstance, entity);
         gameObject.GetComponent<ManaBarView>()?.UnregisterListeners(Contexts.sharedInstance, entity);
         gameObject.GetComponent<EntityAnimationView>()?.UnregisterListeners(Contexts.sharedInstance, entity);
+
+        var gc = GameObject.FindGameObjectWithTag("GameController");
+        gc?.GetComponent<ExperienceController>()?.UnregisterListeners(Contexts.sharedInstance, entity);
     }
 }
