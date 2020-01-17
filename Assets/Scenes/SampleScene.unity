@@ -24124,6 +24124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6551ca0b490814a8886eea913e4173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   smoothMoveSpeed: 2
 --- !u!81 &8700628387908143930
 AudioListener:

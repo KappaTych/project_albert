@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1345568674341369953
+--- !u!1 &8470647504622809070
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1345568674341369955}
-  - component: {fileID: 1345568674341369952}
-  - component: {fileID: 2262938396019482635}
-  - component: {fileID: 8445333567202177643}
+  - component: {fileID: 8470647504622809056}
+  - component: {fileID: 8470647504622809057}
+  - component: {fileID: 8470647504622809059}
   m_Layer: 0
-  m_Name: Grass3
+  m_Name: Climb_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1345568674341369955
+--- !u!4 &8470647504622809056
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345568674341369953}
+  m_GameObject: {fileID: 8470647504622809070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1345568674341369952
+--- !u!212 &8470647504622809057
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345568674341369953}
+  m_GameObject: {fileID: 8470647504622809070}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec8ccc2cf6da86f4ab9b11f4a2ab3d2d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6b9b2546cf107c458e797d96397a937, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,36 +80,24 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 1
---- !u!114 &2262938396019482635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345568674341369953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63c84eb8cfc17d34184066d79d82900f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!60 &8445333567202177643
+  m_SpriteSortPoint: 0
+--- !u!60 &8470647504622809059
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345568674341369953}
+  m_GameObject: {fileID: 8470647504622809070}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.57741934, y: 0.3666666}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -119,16 +106,30 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.09304434, y: 0.086458415}
-      - {x: -0.10866934, y: 0.117708415}
-      - {x: -0.10866934, y: 0.18020841}
-      - {x: -0.09304434, y: 0.19583341}
-      - {x: -0.06179434, y: 0.19583341}
-      - {x: -0.04616934, y: 0.21145841}
-      - {x: -0.03054434, y: 0.22708341}
-      - {x: 0.01633066, y: 0.22708341}
-      - {x: 0.03195566, y: 0.21145841}
-      - {x: 0.04758066, y: 0.19583341}
-      - {x: 0.09445566, y: 0.19583341}
-      - {x: 0.12570566, y: 0.13333341}
-      - {x: 0.12570566, y: 0.039583415}
+    - - {x: -0.5, y: -0.21875}
+      - {x: -0.5, y: 0.25}
+      - {x: -0.40625, y: 0.25}
+      - {x: -0.359375, y: 0.171875}
+      - {x: -0.34375, y: 0.09375}
+      - {x: -0.34375, y: -0.046875}
+      - {x: -0.40625, y: -0.140625}
+      - {x: -0.453125, y: -0.203125}
+    - - {x: 0.140625, y: -0.453125}
+      - {x: 0.28125, y: -0.25}
+      - {x: 0.328125, y: -0.140625}
+      - {x: 0.359375, y: -0.03125}
+      - {x: 0.359375, y: 0.125}
+      - {x: 0.328125, y: 0.265625}
+      - {x: 0.234375, y: 0.375}
+      - {x: 0.140625, y: 0.4375}
+      - {x: 0.109375, y: 0.46875}
+      - {x: 0.21875, y: 0.40625}
+      - {x: 0.3125, y: 0.3125}
+      - {x: 0.375, y: 0.140625}
+      - {x: 0.4375, y: -0.046875}
+      - {x: 0.46875, y: -0.109375}
+      - {x: 0.484375, y: -0.21875}
+      - {x: 0.4375, y: -0.296875}
+      - {x: 0.375, y: -0.359375}
+      - {x: 0.28125, y: -0.40625}
+      - {x: 0.21875, y: -0.4375}
