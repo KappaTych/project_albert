@@ -15,6 +15,7 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance { get; set; }
     public string defaultLevel = "SampleScene";
+    private bool firstSave = false;
 
     private void Awake()
     {
@@ -23,19 +24,29 @@ public class SaveManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            firstSave = true;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        if (firstSave)
+        {
+            firstSave = false;
             Save(defaultLevel);
         }
-        //else
-        //{
-        //    Destroy(gameObject);
-        //}
     }
 
     public Save CreateSave(string lastLevel)
     {
         Debug.Log("save level with name" + lastLevel);
         var save = new Save();
-        var entity = GameObject.FindGameObjectWithTag("Player")?.GetEntity<CoreEntity>();
+        var pl = GameObject.FindGameObjectWithTag("Player");
+        var entity = pl?.GetEntity<CoreEntity>();
         var playerStat = entity.playerStat;
         save.HP = entity.hellth.curValue;
         save.Exp = 0;

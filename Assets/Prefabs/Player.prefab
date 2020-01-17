@@ -298,7 +298,7 @@ MonoBehaviour:
     maxHealth: 30
     atkType: 1
     attackDamage: 10
-    isEnableFireball: 1
+    isEnableFireball: 0
     fireballDamage: 2
     fireballManaCost: 10
     fireballSpeed: 0.7
