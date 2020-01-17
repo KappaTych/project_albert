@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &305897316 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5531771101362911708, guid: d80e57035e6c31a4c9bae3a722fa7320,
+    type: 3}
+  m_PrefabInstance: {fileID: 1761319170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &713808940
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +414,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0017868578, y: 0.13571128}
   m_Size: {x: 0.17498386, y: 0.22285569}
   m_Direction: 0
+--- !u!1 &1602424698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4253350834993830679, guid: d80e57035e6c31a4c9bae3a722fa7320,
+    type: 3}
+  m_PrefabInstance: {fileID: 1761319170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1724638482 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6977931158496766028, guid: d80e57035e6c31a4c9bae3a722fa7320,
+    type: 3}
+  m_PrefabInstance: {fileID: 1761319170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1761319170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -475,6 +493,67 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 752383072623431931, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: stat.moveSpeed
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 752383072623431931, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: stat.maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 752383072623431931, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: stat.attackDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 752383072623431931, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: stat.fireballDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 752383072623431931, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: stat.fireballManaCost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 752383072623431931, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: stat.fireballSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 752383072623431931, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: stat.maxMana
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 752383072623431931, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: stat.manaRegen
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 752383072623431928, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 305897316}
+    - target: {fileID: 3188963451788766149, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 1602424698}
+    - target: {fileID: 3156524230252212336, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: spawnTransform
+      value: 
+      objectReference: {fileID: 1724638482}
+    - target: {fileID: 3156524230252212336, guid: d80e57035e6c31a4c9bae3a722fa7320,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 3139146911286090836, guid: 6895e38570973714da1066cdd06d70c9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d80e57035e6c31a4c9bae3a722fa7320, type: 3}
 --- !u!1 &1893475190
