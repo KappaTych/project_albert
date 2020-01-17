@@ -9,7 +9,7 @@ public class PortalScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<Transition>().GoToNextLevel();
+            GameObject.FindGameObjectWithTag("Transition").GetComponent<Transition>().GoToNextLevel();
         }
     }
 }

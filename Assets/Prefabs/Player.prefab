@@ -305,7 +305,7 @@ MonoBehaviour:
     fireballManaCost: 10
     fireballSpeed: 2.3
     maxMana: 30
-    manaRegen: 3
+    manaRegen: 4
     manaTimeRegen: 1
   startDir: 4
 --- !u!114 &752383072623431876
