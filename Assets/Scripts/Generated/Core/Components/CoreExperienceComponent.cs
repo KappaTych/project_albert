@@ -8,27 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class CoreEntity {
 
-    public KillMobComponent killMob { get { return (KillMobComponent)GetComponent(CoreComponentsLookup.KillMob); } }
-    public bool hasKillMob { get { return HasComponent(CoreComponentsLookup.KillMob); } }
+    public ExperienceComponent experience { get { return (ExperienceComponent)GetComponent(CoreComponentsLookup.Experience); } }
+    public bool hasExperience { get { return HasComponent(CoreComponentsLookup.Experience); } }
 
-    public void AddKillMob(int newCount, int newExp) {
-        var index = CoreComponentsLookup.KillMob;
-        var component = (KillMobComponent)CreateComponent(index, typeof(KillMobComponent));
-        component.count = newCount;
+    public void AddExperience(int newExp) {
+        var index = CoreComponentsLookup.Experience;
+        var component = (ExperienceComponent)CreateComponent(index, typeof(ExperienceComponent));
         component.exp = newExp;
         AddComponent(index, component);
     }
 
-    public void ReplaceKillMob(int newCount, int newExp) {
-        var index = CoreComponentsLookup.KillMob;
-        var component = (KillMobComponent)CreateComponent(index, typeof(KillMobComponent));
-        component.count = newCount;
+    public void ReplaceExperience(int newExp) {
+        var index = CoreComponentsLookup.Experience;
+        var component = (ExperienceComponent)CreateComponent(index, typeof(ExperienceComponent));
         component.exp = newExp;
         ReplaceComponent(index, component);
     }
 
-    public void RemoveKillMob() {
-        RemoveComponent(CoreComponentsLookup.KillMob);
+    public void RemoveExperience() {
+        RemoveComponent(CoreComponentsLookup.Experience);
     }
 }
 
@@ -42,17 +40,17 @@ public partial class CoreEntity {
 //------------------------------------------------------------------------------
 public sealed partial class CoreMatcher {
 
-    static Entitas.IMatcher<CoreEntity> _matcherKillMob;
+    static Entitas.IMatcher<CoreEntity> _matcherExperience;
 
-    public static Entitas.IMatcher<CoreEntity> KillMob {
+    public static Entitas.IMatcher<CoreEntity> Experience {
         get {
-            if (_matcherKillMob == null) {
-                var matcher = (Entitas.Matcher<CoreEntity>)Entitas.Matcher<CoreEntity>.AllOf(CoreComponentsLookup.KillMob);
+            if (_matcherExperience == null) {
+                var matcher = (Entitas.Matcher<CoreEntity>)Entitas.Matcher<CoreEntity>.AllOf(CoreComponentsLookup.Experience);
                 matcher.componentNames = CoreComponentsLookup.componentNames;
-                _matcherKillMob = matcher;
+                _matcherExperience = matcher;
             }
 
-            return _matcherKillMob;
+            return _matcherExperience;
         }
     }
 }

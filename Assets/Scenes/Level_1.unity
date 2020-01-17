@@ -240,7 +240,7 @@ PrefabInstance:
     - target: {fileID: 8160639821009500932, guid: 268a7407529bb8b47b7b51a9c973cf38,
         type: 3}
       propertyPath: m_UiScaleMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 268a7407529bb8b47b7b51a9c973cf38, type: 3}
@@ -459,6 +459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a4020054ca507246999773ea071c37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityId: 0
+  isRegister: 0
 --- !u!1001 &1232120886668857424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -540,6 +542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a4020054ca507246999773ea071c37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityId: 0
+  isRegister: 0
 --- !u!114 &5668233389174543701
 MonoBehaviour:
   m_ObjectHideFlags: 0

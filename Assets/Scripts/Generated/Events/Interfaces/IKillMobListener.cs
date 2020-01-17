@@ -7,5 +7,5 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 public interface IKillMobListener {
-    void OnKillMob(CoreEntity entity, int count);
+    void OnKillMob(CoreEntity entity, int count, int exp);
 }

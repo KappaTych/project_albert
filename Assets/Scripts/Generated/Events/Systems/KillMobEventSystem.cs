@@ -30,7 +30,7 @@ public sealed class KillMobEventSystem : Entitas.ReactiveSystem<CoreEntity> {
             _listenerBuffer.Clear();
             _listenerBuffer.AddRange(e.killMobListener.value);
             foreach (var listener in _listenerBuffer) {
-                listener.OnKillMob(e, component.count);
+                listener.OnKillMob(e, component.count, component.exp);
             }
         }
     }

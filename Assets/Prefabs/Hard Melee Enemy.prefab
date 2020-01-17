@@ -295,6 +295,7 @@ MonoBehaviour:
     maxHealth: 30
     attackDamage: 2
     moveSpeed: 0.9
+    expOnDead: 10
   startDir: 1
 --- !u!114 &5825844795904336048
 MonoBehaviour:

@@ -28,23 +28,24 @@ public static class CoreComponentsLookup {
     public const int EnableMove = 17;
     public const int EnemyStat = 18;
     public const int EntityId = 19;
-    public const int FireBall = 20;
-    public const int FireBallListener = 21;
-    public const int GameObject = 22;
-    public const int Hellth = 23;
-    public const int HellthListener = 24;
-    public const int KillMob = 25;
-    public const int KillMobListener = 26;
-    public const int Mana = 27;
-    public const int ManaListener = 28;
-    public const int ManaSpeed = 29;
-    public const int Move = 30;
-    public const int MoveListener = 31;
-    public const int MoveSpeed = 32;
-    public const int PlayerDead = 33;
-    public const int PlayerStat = 34;
+    public const int Experience = 20;
+    public const int FireBall = 21;
+    public const int FireBallListener = 22;
+    public const int GameObject = 23;
+    public const int Hellth = 24;
+    public const int HellthListener = 25;
+    public const int KillMob = 26;
+    public const int KillMobListener = 27;
+    public const int Mana = 28;
+    public const int ManaListener = 29;
+    public const int ManaSpeed = 30;
+    public const int Move = 31;
+    public const int MoveListener = 32;
+    public const int MoveSpeed = 33;
+    public const int PlayerDead = 34;
+    public const int PlayerStat = 35;
 
-    public const int TotalComponents = 35;
+    public const int TotalComponents = 36;
 
     public static readonly string[] componentNames = {
         "AnimationManaBar",
@@ -67,6 +68,7 @@ public static class CoreComponentsLookup {
         "EnableMove",
         "EnemyStat",
         "EntityId",
+        "Experience",
         "FireBall",
         "FireBallListener",
         "GameObject",
@@ -105,6 +107,7 @@ public static class CoreComponentsLookup {
         typeof(EnableMoveComponent),
         typeof(EnemyStatComponent),
         typeof(EntityIdComponent),
+        typeof(ExperienceComponent),
         typeof(FireBallComponent),
         typeof(FireBallListenerComponent),
         typeof(GameObjectComponent),

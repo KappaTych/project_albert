@@ -10,6 +10,8 @@ public class EnemyStatComponent : IComponent
     public int attackDamage = 0;
 
     public float moveSpeed = .0f;
+
+    public int expOnDead = 0;
 }
 
 
@@ -34,5 +36,10 @@ public partial class CoreEntity
             ReplaceAttackDamage(stat.attackDamage);
         else
             AddAttackDamage(stat.attackDamage);
+
+        if (hasExperience)
+            ReplaceExperience(stat.expOnDead);
+        else
+            AddExperience(stat.expOnDead);
     }
 }

@@ -30,9 +30,12 @@ public class DamagesSystem : ReactiveSystem<CoreEntity>, ICleanupSystem
         {
             e.ReplaceHellth(e.hellth.curValue - e.damage.value);
             var other_entity = _contexts.core.GetEntityWithEntityId(e.damage.damageOnwerId);
-            if (e.hellth.curValue <= 0 && other_entity != null && other_entity.hasKillMob)
+            if (e.hellth.curValue <= 0 && other_entity != null && 
+                other_entity.hasKillMob && e.hasExperience)
             {
                 other_entity.killMob.count += 1;
+                other_entity.killMob.exp += e.experience.exp;
+                other_entity.ReplaceKillMob(other_entity.killMob.count, other_entity.killMob.exp);
             }
 
         }

@@ -6,4 +6,5 @@ using Entitas.CodeGeneration.Attributes;
 public class KillMobComponent : IComponent
 {
     public int count;
+    public int exp;
 }

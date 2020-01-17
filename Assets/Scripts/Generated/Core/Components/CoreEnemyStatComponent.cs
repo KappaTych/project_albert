@@ -11,21 +11,23 @@ public partial class CoreEntity {
     public EnemyStatComponent enemyStat { get { return (EnemyStatComponent)GetComponent(CoreComponentsLookup.EnemyStat); } }
     public bool hasEnemyStat { get { return HasComponent(CoreComponentsLookup.EnemyStat); } }
 
-    public void AddEnemyStat(int newMaxHealth, int newAttackDamage, float newMoveSpeed) {
+    public void AddEnemyStat(int newMaxHealth, int newAttackDamage, float newMoveSpeed, int newExpOnDead) {
         var index = CoreComponentsLookup.EnemyStat;
         var component = (EnemyStatComponent)CreateComponent(index, typeof(EnemyStatComponent));
         component.maxHealth = newMaxHealth;
         component.attackDamage = newAttackDamage;
         component.moveSpeed = newMoveSpeed;
+        component.expOnDead = newExpOnDead;
         AddComponent(index, component);
     }
 
-    public void ReplaceEnemyStat(int newMaxHealth, int newAttackDamage, float newMoveSpeed) {
+    public void ReplaceEnemyStat(int newMaxHealth, int newAttackDamage, float newMoveSpeed, int newExpOnDead) {
         var index = CoreComponentsLookup.EnemyStat;
         var component = (EnemyStatComponent)CreateComponent(index, typeof(EnemyStatComponent));
         component.maxHealth = newMaxHealth;
         component.attackDamage = newAttackDamage;
         component.moveSpeed = newMoveSpeed;
+        component.expOnDead = newExpOnDead;
         ReplaceComponent(index, component);
     }
 
