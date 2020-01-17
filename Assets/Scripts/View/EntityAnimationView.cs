@@ -11,7 +11,7 @@ public class EntityAnimationView : MonoBehaviour,
     public string attacking = "attack";
     public string dead = "dead";
 
-    public CoreEntity e;
+    private int entityId;
 
 
     void Awake()
@@ -21,7 +21,10 @@ public class EntityAnimationView : MonoBehaviour,
 
     public void RegisterListeners(Contexts contexts, CoreEntity entity)
     {
-        e = entity;
+        if (entity == null)
+            return;
+
+        entityId = entity.entityId.id;
         entity.AddMoveListener(this);
         entity.AddDirectionListener(this);
         entity.AddAttackListener(this);
@@ -33,38 +36,56 @@ public class EntityAnimationView : MonoBehaviour,
         OnMove(entity, entity.move.movement);
         OnDirection(entity, entity.direction.dir);
     }
+    
+    public void UnregisterListeners(Contexts contexts, CoreEntity entity)
+    {
+        if (entity == null)
+            return;
 
-    public void OnAttackType(CoreEntity entity, eAttackType t)
+        OnMove(entity, Vector2.zero);
+
+        entity.RemoveMoveListener();
+        entity.RemoveDirectionListener();
+        entity.RemoveAttackListener();
+        entity.RemoveDeadListener();
+        entity.RemoveAttackTypeListener();
+    }
+
+    public void OnAttackType(CoreEntity _, eAttackType t)
     {
         var name = t.ToString().ToLower();
-        anim.SetTrigger(name);
+        anim?.SetTrigger(name);
     }
 
-    public void OnMove(CoreEntity entity, UnityEngine.Vector2 movement)    
+    public void OnMove(CoreEntity entity, UnityEngine.Vector2 _)    
     {
-        if (entity.isEnableMove)
-            anim.SetBool(moving, entity.move.isMoving());
+        if (entity != null && entity.isEnableMove)
+            anim?.SetBool(moving, entity.move.isMoving());
     }
 
-    public void OnDirection(CoreEntity entity, int dir)
+    public void OnDirection(CoreEntity _, int dir)
     {
-        anim.SetFloat(direction, (float)dir);
+        anim?.SetFloat(direction, (float)dir);
     }
 
-    public void OnAttack(CoreEntity entity, bool acrivate)
+    public void OnAttack(CoreEntity _, bool acrivate)
     {
         if (acrivate)
-            gameObject.GetComponent<Animator>().SetTrigger(attacking);
+            gameObject.GetComponent<Animator>()?.SetTrigger(attacking);
     }
 
     public void OnAttackAnimationEnd()
     {
+        var e = Contexts.sharedInstance.core.GetEntityWithEntityId(entityId);
+        if (e == null)
+            return;
+        
         e.ReplaceAttack(false);
     }
 
     public void OnDead(CoreEntity entity)
     {
-        gameObject.GetComponent<Animator>().SetTrigger(dead);
+        gameObject.GetComponent<Animator>()?.SetTrigger(dead);
     }
 
     public void onDeadAnimationEnd()
