@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour, IAnyEventListener, IAnyPlayerDeadListener
 {
@@ -33,7 +32,9 @@ public class GameOverController : MonoBehaviour, IAnyEventListener, IAnyPlayerDe
 
     public void OnAnyPlayerDead(CoreEntity entity)
     {
-        Debug.Log("Player dead");
+        var target = GameObject.FindGameObjectWithTag("Player");
+        Destroy(target);
+        SceneManager.LoadScene("DeathScreen");
     }
 
 }
