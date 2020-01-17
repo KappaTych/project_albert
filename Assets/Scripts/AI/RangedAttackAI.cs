@@ -20,6 +20,11 @@ public class RangedAttackAI : MonoBehaviour
     void Update()
     {
         if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (target == null)
             return;
 
         var entity = gameObject.GetEntity<CoreEntity>();

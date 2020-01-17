@@ -21,6 +21,10 @@ public class HauntingEnemyAI : MonoBehaviour, ICollisionListener
     private void FixedUpdate()
     {
         var entity = gameObject.GetEntity<CoreEntity>();
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
 
         if (target == null || entity == null || !target.activeInHierarchy)
         {
