@@ -13,10 +13,9 @@ public enum eAttackType
 [Core]
 public class PlayerStatComponent : IComponent
 {
-    public int maxHealth = 0;
+    public float moveSpeed = .0f;
 
-    public int maxMana = 0;
-    public int manaRegen = 0;
+    public int maxHealth = 0;
 
     public eAttackType atkType = eAttackType.MELEE;
     public int attackDamage = 0;
@@ -24,8 +23,13 @@ public class PlayerStatComponent : IComponent
     public bool isEnableFireball = false;
     public int fireballDamage = 0;
     public int fireballManaCost = 0;
+    public float fireballSpeed = .0f;
 
-    public float moveSpeed = .0f;
+    public int maxMana = 0;
+    public int manaRegen = 0;
+    public float manaTimeRegen = 1.0f;
+
+
 }
 
 
@@ -46,6 +50,19 @@ public partial class CoreEntity
         else 
             AddHellth(stat.maxHealth, stat.maxHealth);
 
+        if (stat.isEnableFireball)
+        {
+            if (hasMana)
+                ReplaceMana(mana.curValue, stat.maxMana);
+            else
+                AddMana(0, stat.maxMana);
+
+            if (hasManaSpeed)
+                ReplaceManaSpeed(stat.manaRegen, stat.manaTimeRegen);
+            else
+                AddManaSpeed(stat.manaRegen, stat.manaTimeRegen);
+        }
+
         if (hasAttackDamage)
             ReplaceAttackDamage(stat.attackDamage);
         else 
@@ -55,5 +72,8 @@ public partial class CoreEntity
             ReplaceAttackType(stat.atkType);
         else
             AddAttackType(stat.atkType);
+
+
+
     }
 }

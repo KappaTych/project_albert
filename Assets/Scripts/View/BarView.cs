@@ -9,18 +9,18 @@ public class BarView : MonoBehaviour
     [SerializeField] private float vl;
     [SerializeField] private float maxVl;
     [SerializeField] private float speed = 0.005f;
+    private float eps = 0.01f;
 
-    void Start()
-    {
-        vl = maxVl;
-    }
+    void Start() {}
 
     private void Update()
     {
         vlImage.fillAmount = vl / maxVl;
 
-        if (effectImage.fillAmount > vlImage.fillAmount)
+        if (effectImage.fillAmount - vlImage.fillAmount > eps)
             effectImage.fillAmount -= speed;
+        else if (vlImage.fillAmount - effectImage.fillAmount > eps)
+            effectImage.fillAmount += speed;
         else
             effectImage.fillAmount = vlImage.fillAmount;
         
@@ -29,4 +29,8 @@ public class BarView : MonoBehaviour
     public void setValue(float v) { vl = v; }
 
     public void setValue(float v, float m) { vl = v; maxVl = m; }
+
+    public bool isAnimationActivate() {
+        return Mathf.Abs(effectImage.fillAmount - vlImage.fillAmount) > eps; 
+    }
 }

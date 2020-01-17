@@ -10,6 +10,7 @@ public class PlayerStatController : MonoBehaviour
     void Awake()
     {
         var contexts = Contexts.sharedInstance;
+        contexts.SubscribeId();
         var entity = contexts.core.CreateEntity();
 
         gameObject.Link(entity);
@@ -26,6 +27,7 @@ public class PlayerStatController : MonoBehaviour
     {
         var entity = gameObject.GetEntity<CoreEntity>();
         gameObject.GetComponent<HealthBarView>()?.RegisterListeners(Contexts.sharedInstance, entity);
+        gameObject.GetComponent<ManaBarView>()?.RegisterListeners(Contexts.sharedInstance, entity);
         gameObject.GetComponent<EntityAnimationView>()?.RegisterListeners(Contexts.sharedInstance, entity); 
     }
 
@@ -33,6 +35,7 @@ public class PlayerStatController : MonoBehaviour
     {
         var entity = gameObject.GetEntity<CoreEntity>();
         gameObject.GetComponent<HealthBarView>()?.UnregisterListeners(Contexts.sharedInstance, entity);
+        gameObject.GetComponent<ManaBarView>()?.UnregisterListeners(Contexts.sharedInstance, entity);
         gameObject.GetComponent<EntityAnimationView>()?.UnregisterListeners(Contexts.sharedInstance, entity);
     }
 }

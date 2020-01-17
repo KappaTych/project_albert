@@ -11,33 +11,35 @@ public partial class CoreEntity {
     public PlayerStatComponent playerStat { get { return (PlayerStatComponent)GetComponent(CoreComponentsLookup.PlayerStat); } }
     public bool hasPlayerStat { get { return HasComponent(CoreComponentsLookup.PlayerStat); } }
 
-    public void AddPlayerStat(int newMaxHealth, int newMaxMana, int newManaRegen, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, float newMoveSpeed) {
+    public void AddPlayerStat(float newMoveSpeed, int newMaxHealth, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, int newMaxMana, int newManaRegen, float newManaTimeRegen) {
         var index = CoreComponentsLookup.PlayerStat;
         var component = (PlayerStatComponent)CreateComponent(index, typeof(PlayerStatComponent));
+        component.moveSpeed = newMoveSpeed;
         component.maxHealth = newMaxHealth;
-        component.maxMana = newMaxMana;
-        component.manaRegen = newManaRegen;
         component.atkType = newAtkType;
         component.attackDamage = newAttackDamage;
         component.isEnableFireball = newIsEnableFireball;
         component.fireballDamage = newFireballDamage;
         component.fireballManaCost = newFireballManaCost;
-        component.moveSpeed = newMoveSpeed;
+        component.maxMana = newMaxMana;
+        component.manaRegen = newManaRegen;
+        component.manaTimeRegen = newManaTimeRegen;
         AddComponent(index, component);
     }
 
-    public void ReplacePlayerStat(int newMaxHealth, int newMaxMana, int newManaRegen, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, float newMoveSpeed) {
+    public void ReplacePlayerStat(float newMoveSpeed, int newMaxHealth, eAttackType newAtkType, int newAttackDamage, bool newIsEnableFireball, int newFireballDamage, int newFireballManaCost, int newMaxMana, int newManaRegen, float newManaTimeRegen) {
         var index = CoreComponentsLookup.PlayerStat;
         var component = (PlayerStatComponent)CreateComponent(index, typeof(PlayerStatComponent));
+        component.moveSpeed = newMoveSpeed;
         component.maxHealth = newMaxHealth;
-        component.maxMana = newMaxMana;
-        component.manaRegen = newManaRegen;
         component.atkType = newAtkType;
         component.attackDamage = newAttackDamage;
         component.isEnableFireball = newIsEnableFireball;
         component.fireballDamage = newFireballDamage;
         component.fireballManaCost = newFireballManaCost;
-        component.moveSpeed = newMoveSpeed;
+        component.maxMana = newMaxMana;
+        component.manaRegen = newManaRegen;
+        component.manaTimeRegen = newManaTimeRegen;
         ReplaceComponent(index, component);
     }
 

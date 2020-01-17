@@ -58,7 +58,7 @@ public class HauntingEnemyAI : MonoBehaviour, ICollisionListener
     }
 
 
-    // todo make system
+    // TODO make system
     public void OnCollision(CoreEntity entity, int otherEntityId)
     {
         entity.RemoveCollision();

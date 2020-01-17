@@ -19,6 +19,18 @@ public class InputController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
             entity.ReplaceAttack(true);
+
+        if (Input.GetKeyDown(KeyCode.E) && 
+            entity.hasMana && entity.hasManaSpeed &&
+            !entity.attack.active && !entity.isFireBall)
+        {
+            int newMana = entity.mana.curValue - entity.playerStat.fireballManaCost;
+            if (newMana >= 0)
+            {
+                entity.ReplaceMana(newMana);
+                entity.isFireBall = true;
+            } 
+        }
         
     }
 

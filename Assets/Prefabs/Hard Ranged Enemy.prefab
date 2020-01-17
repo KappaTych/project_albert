@@ -327,6 +327,7 @@ MonoBehaviour:
   moving: isMoving
   attacking: attack
   dead: dead
+  fireball: fireball
 --- !u!1 &7802401167023045922
 GameObject:
   m_ObjectHideFlags: 0
