@@ -42,10 +42,11 @@ public static class CoreComponentsLookup {
     public const int Move = 31;
     public const int MoveListener = 32;
     public const int MoveSpeed = 33;
-    public const int PlayerDead = 34;
-    public const int PlayerStat = 35;
+    public const int Owner = 34;
+    public const int PlayerDead = 35;
+    public const int PlayerStat = 36;
 
-    public const int TotalComponents = 36;
+    public const int TotalComponents = 37;
 
     public static readonly string[] componentNames = {
         "AnimationManaBar",
@@ -82,6 +83,7 @@ public static class CoreComponentsLookup {
         "Move",
         "MoveListener",
         "MoveSpeed",
+        "Owner",
         "PlayerDead",
         "PlayerStat"
     };
@@ -121,6 +123,7 @@ public static class CoreComponentsLookup {
         typeof(MoveComponent),
         typeof(MoveListenerComponent),
         typeof(MoveSpeedComponent),
+        typeof(OwnerComponent),
         typeof(PlayerDeadComponent),
         typeof(PlayerStatComponent)
     };

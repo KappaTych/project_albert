@@ -17,5 +17,6 @@ public class FireballSpawner : MonoBehaviour
         instance_entity?.ReplaceMove(dir);
         instance_entity?.ReplaceMoveSpeed(entity.playerStat.fireballSpeed);
         instance_entity?.ReplaceAttackDamage(entity.playerStat.fireballDamage);
+        instance_entity?.AddOwner(entity.entityId.id);
     }
 }

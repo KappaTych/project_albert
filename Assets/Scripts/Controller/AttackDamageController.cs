@@ -12,11 +12,18 @@ public class AttackDamageController : MonoBehaviour
         var entity = damageObj?.GetEntity<CoreEntity>();
         var other_entity = other?.GetEntity<CoreEntity>();
         if (entity != null && other_entity != null && 
-            entity.hasAttackDamage && entity.hasEntityId)
+            entity.hasAttackDamage)
         {
+            if (entity.hasOwner)
+            {
+                other_entity.AddDamage(entity.attackDamage.vl, entity.owner.ownerId);
+                return;
+            }
+
+
             if (other_entity.hasDamage)
                 other_entity.damage.value += entity.attackDamage.vl;
-            else
+            else if (entity.hasEntityId)
                 other_entity.AddDamage(entity.attackDamage.vl, entity.entityId.id);
         }
     }
