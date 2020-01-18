@@ -1,9 +1,9 @@
 fileFormatVersion: 2
 guid: 23e19a7533432f44fadd57a590b3b5be
 TextureImporter:
-  fileIDToRecycleName: {}
+  internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -50,7 +50,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -58,7 +58,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -69,7 +69,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,7 +81,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -91,17 +93,50 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
-    physicsShape: []
+    physicsShape:
+    - - {x: 9, y: 15}
+      - {x: -7, y: 15}
+      - {x: -18, y: 10}
+      - {x: -25, y: 3}
+      - {x: -28, y: -6}
+      - {x: -29, y: -19}
+      - {x: -28, y: -31}
+      - {x: -17, y: -34}
+      - {x: -7, y: -37}
+      - {x: -7, y: -43}
+      - {x: -10, y: -43}
+      - {x: -12, y: -44}
+      - {x: -13, y: -45}
+      - {x: -13, y: -51}
+      - {x: 14, y: -51}
+      - {x: 14, y: -45}
+      - {x: 13, y: -44}
+      - {x: 11, y: -43}
+      - {x: 8, y: -43}
+      - {x: 8, y: -36}
+      - {x: 10, y: -36}
+      - {x: 11, y: -34}
+      - {x: 20, y: -34}
+      - {x: 26, y: -31}
+      - {x: 31, y: -25}
+      - {x: 31, y: -17}
+      - {x: 28, y: -7}
+      - {x: 26, y: 0}
+      - {x: 23, y: 6}
+      - {x: 17, y: 12}
     bones: []
     spriteID: 9a04bd9e73eba684e80ab1e5eed8c6b6
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
